@@ -1,83 +1,106 @@
-import { ArrowRight, BookOpen } from "lucide-react";
-import React from "react";
+import React, { useState } from "react";
+import {
+  Calendar,
+  User,
+  ChevronDown,
+  Instagram,
+  Facebook,
+  Twitter,
+} from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen mt-6 bg-background flex items-center">
-      <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-39 items-center">
-        <div className="space-y-8">
-          <div className="inline-block px-4 py-2 bg-[#e83f25]/10 rounded-full border border-[#e83f25]/20">
-            <span className="text-[#e83f25] text-sm font-medium" style={{fontFamily: 'var(--font-secondary)'}}>
-              3-Month Intensive Program
-            </span>
-          </div>
-          <h1 className="text-6xl lg:text-7xl font-bold leading-tight" style={{fontFamily: 'var(--font-primary)'}}>
-            MASTER YOUR
-            <span className="block text-[#e83f25]">CRAFT IN 90 DAYS</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-xl" style={{fontFamily: 'var(--font-secondary)'}}>
-            Transform your career with industry-leading courses designed by experts. Learn, build, and launch your future.
+    <div className="relative h-screen mt-26 w-full overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 backdrop-blur-lg">
+        <img
+          src="https://www.aaschool.ac.uk/assets/woodworkshop-1582219182.jpg"
+          alt="Workshop"
+          className="w-full h-full object-cover blur-[2px]"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+      </div>
+
+      {/* Social Media Icons - Right Side */}
+      <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
+        <a href="#" className="text-white hover:text-primary transition-colors">
+          <Instagram size={24} />
+        </a>
+        <a href="#" className="text-white hover:text-primary transition-colors">
+          <Facebook size={24} />
+        </a>
+        <a href="#" className="text-white hover:text-primary transition-colors">
+          <Twitter size={24} />
+        </a>
+      </div>
+
+      {/* Scroll Indicator - Right Side Bottom */}
+      <div className="absolute right-8 bottom-12 flex flex-col items-center gap-2 z-20">
+        <div className="w-px h-20 bg-white/50" />
+        <ChevronDown className="text-white animate-bounce" size={24} />
+      </div>
+
+      {/* Main Content */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
+        {/* Top Label */}
+        <div className="mb-8">
+          <p className="text-white text-sm md:text-base tracking-[0.3em] uppercase font-secondary">
+            EXPLORE
           </p>
-          <div className="flex gap-4">
-            <button className="px-8 py-4 bg-[#e83f25] text-white rounded-lg font-semibold hover:bg-[#d63620] transition-all flex items-center gap-2 group">
-              Start Learning <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            <button className="px-8 py-4 border-2 border-border rounded-lg font-semibold hover:border-[#e83f25] transition-all">
-              View Courses
-            </button>
-          </div>
-          <div className="grid grid-cols-3 gap-8 pt-8">
-            <div>
-              <div className="text-3xl font-bold text-[#e83f25]" style={{fontFamily: 'var(--font-primary)'}}>5000+</div>
-              <div className="text-sm text-muted-foreground">Students</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-[#e83f25]" style={{fontFamily: 'var(--font-primary)'}}>94%</div>
-              <div className="text-sm text-muted-foreground">Success Rate</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-[#e83f25]" style={{fontFamily: 'var(--font-primary)'}}>50+</div>
-              <div className="text-sm text-muted-foreground">Expert Mentors</div>
-            </div>
-          </div>
         </div>
-        <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#e83f25]/20 to-transparent rounded-3xl blur-3xl"></div>
-          <div className="relative bg-card border border-border rounded-2xl p-8 space-y-6">
-            <div className="flex items-center gap-4 pb-4 border-b border-border">
-              <div className="w-12 h-12 bg-[#e83f25]/10 rounded-full flex items-center justify-center">
-                <BookOpen className="w-6 h-6 text-[#e83f25]" />
-              </div>
-              <div>
-                <div className="font-semibold">Next Batch Starts</div>
-                <div className="text-sm text-muted-foreground">December 1, 2025</div>
-              </div>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
-                <span className="text-muted-foreground">Duration</span>
-                <span className="font-semibold">12 Weeks</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-muted-foreground">Format</span>
-                <span className="font-semibold">Online + Live</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-muted-foreground">Projects</span>
-                <span className="font-semibold">5 Real-World</span>
-              </div>
-              <div className="flex items-center justify-between">
-                <span className="text-muted-foreground">Certificate</span>
-                <span className="font-semibold">Industry Recognized</span>
-              </div>
-            </div>
-            <button className="w-full py-3 bg-[#e83f25] text-white rounded-lg font-semibold hover:bg-[#3a3a3a] transition-all">
-              Reserve Your Spot
-            </button>
+
+        {/* Main Heading */}
+        <h1 className="text-white text-6xl md:text-8xl lg:text-9xl font-bold font-primary tracking-tight mb-16">
+          Learning
+        </h1>
+
+        {/* Tagline */}
+        <p className="text-white/90 text-lg md:text-xl lg:text-2xl font-secondary mb-12 max-w-3xl text-center px-4">
+          Empowering minds through hands-on education and innovative learning
+          experiences
+        </p>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 mb-16">
+          <button className="px-8 py-4 bg-[#e83f25] text-white font-semibold font-secondary rounded-lg hover:bg-[#d63820] transition-all duration-300 shadow-lg hover:shadow-xl">
+            Explore Courses
+          </button>
+          <button className="px-8 py-4 bg-transparent text-white font-semibold font-secondary rounded-lg border-2 border-white hover:bg-white hover:text-[#2b2b2b] transition-all duration-300">
+            Learn More
+          </button>
+        </div>
+
+        {/* Stats */}
+        <div className="flex flex-col sm:flex-row gap-8 md:gap-16 text-center">
+          <div>
+            <p className="text-white text-3xl md:text-4xl font-bold font-primary mb-1">
+              500+
+            </p>
+            <p className="text-white/80 text-sm md:text-base font-secondary tracking-wide">
+              Students
+            </p>
+          </div>
+          <div className="hidden sm:block w-px bg-white/30"></div>
+          <div>
+            <p className="text-white text-3xl md:text-4xl font-bold font-primary mb-1">
+              50+
+            </p>
+            <p className="text-white/80 text-sm md:text-base font-secondary tracking-wide">
+              Courses
+            </p>
+          </div>
+          <div className="hidden sm:block w-px bg-white/30"></div>
+          <div>
+            <p className="text-white text-3xl md:text-4xl font-bold font-primary mb-1">
+              Expert
+            </p>
+            <p className="text-white/80 text-sm md:text-base font-secondary tracking-wide">
+              Instructors
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
