@@ -5,6 +5,7 @@ import Events from './pages/EventsPage';
 import Gallery from './pages/GalleryPage'; 
 import ContactUs from './pages/ContactUsPage';
 import LandingPage from './pages/LandingPage';
+import BlogsPage from './pages/BlogsPage';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,11 @@ const router = createBrowserRouter([
         element: <Gallery />,
       },
       {
-        path: '/contact us',
+        path: '/blogs',
+        element: <BlogsPage />,
+      },
+      {
+        path: '/contact-us',
         element: <ContactUs />,
       },
     ],
