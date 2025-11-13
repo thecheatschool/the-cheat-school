@@ -19,7 +19,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="top-0 left-0 z-50 m-2 shadow-xl bg-white/30 backdrop-blur-lg rounded-xl">
+    <div className="top-0 left-0 z-50 m-2 fixed w-full shadow-xl bg-white/30 backdrop-blur-lg rounded-xl">
       <div className="container p-0.5">
         <div className="flex items-center justify-between">
           <img src={tcs} alt="logo" className="object-contain h-[80px]" />
