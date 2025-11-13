@@ -15,7 +15,7 @@ const Navbar = () => {
     { to: "gallery", label: "GALLERY" },
     { to: "events", label: "EVENTS" },
     { to: "blogs", label: "BLOGS" },
-    { to: "/contact us", label: "CONTACT US" },
+    { to: "/contact-us", label: "CONTACT US" },
   ];
 
   return (
