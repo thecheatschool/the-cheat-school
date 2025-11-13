@@ -12,7 +12,7 @@ const Navbar = () => {
     <div className="top-0 left-0 z-50 m-2 shadow-xl bg-white/30 backdrop-blur-lg rounded-xl">
       <div className="container  p-0.5">
         <div className="flex items-center  justify-between">
-          <img src={tcs} alt="logo" className="object-contain h-[80px]" />
+          <img src={tcs} alt="logo" className="object-contain  rounded-xl h-[80px]" />
 
           <ul className="hidden md:flex flex-row font-bold text-2xl space-x-10 font-primary cursor-pointer">
             <li>
