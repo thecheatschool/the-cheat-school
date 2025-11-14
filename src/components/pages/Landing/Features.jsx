@@ -6,40 +6,40 @@ const Features = () => {
 
   const timelineData = [
     {
-      text: 'Master Frontend Fundamentals',
+      text: 'skillset',
       week: 'Week 1-2',
       category: { tag: 'foundation', bgColor: '#e83f25', color: '#ffffff' },
-      details: 'Deep dive into HTML5, CSS3, JavaScript ES6+, DOM manipulation, responsive design principles, and modern CSS frameworks. Build 2 responsive landing pages.',
+      details: ' olor sit amet consectetur adipisicing elit. Error dorupti aspernatur similique ad anim in voluptates, quaerat optio.',
     },
     {
-      text: 'React & Component Architecture',
+      text: 'skillset',
       week: 'Week 3-4',
       category: { tag: 'frontend', bgColor: '#2b2b2b', color: '#ffffff' },
-      details: 'Learn React fundamentals, hooks, state management, component lifecycle, props, and context API. Build a dynamic single-page application with routing.',
+      details: 'olor sit amet consectetur adipisicing elit. Error dorupti aspernatur similique ad anim in voluptates, quaerat optio.',
     },
     {
-      text: 'Backend Development with Node.js',
+      text: 'skillset',
       week: 'Week 5-6',
       category: { tag: 'backend', bgColor: '#f5f5f5', color: '#2b2b2b' },
-      details: 'Master Node.js, Express.js, RESTful APIs, authentication, authorization, JWT tokens, and middleware. Create a complete REST API with CRUD operations.',
+      details: 'olor sit amet consectetur adipisicing elit. Error dorupti aspernatur similique ad anim in voluptates, quaerat optio.',
     },
     {
-      text: 'Database Design & Integration',
+      text: 'skillset',
       week: 'Week 7-8',
       category: { tag: 'database', bgColor: '#e83f25', color: '#ffffff' },
-      details: 'Learn MongoDB, PostgreSQL, database schema design, relationships, queries, indexing, and optimization. Integrate databases with your backend APIs.',
+      details: 'olor sit amet consectetur adipisicing elit. Error dorupti aspernatur similique ad anim in voluptates, quaerat optio.',
     },
     {
-      text: 'Full Stack Integration & Deployment',
+      text: 'skillset',
       week: 'Week 9-10',
       category: { tag: 'deployment', bgColor: '#2b2b2b', color: '#ffffff' },
-      details: 'Connect frontend and backend, implement real-time features with WebSockets, deploy to cloud platforms (AWS, Heroku), CI/CD pipelines, and monitoring.',
+      details: 'olor sit amet consectetur adipisicing elit. Error dorupti aspernatur similique ad anim in voluptates, quaerat optio.',
     },
     {
-      text: 'Capstone Project & Portfolio Building',
+      text: 'skillset',
       week: 'Week 11-12',
       category: { tag: 'project', bgColor: '#f5f5f5', color: '#2b2b2b' },
-      details: 'Build a complete full-stack application from scratch, implement best practices, write documentation, optimize performance, and prepare your portfolio for job applications.',
+      details: 'olor sit amet consectetur adipisicing elit. Error dorupti aspernatur similique ad anim in voluptates, quaerat optio.',
     },
   ];
 
