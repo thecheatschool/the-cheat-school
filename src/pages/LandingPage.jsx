@@ -102,22 +102,20 @@ const LandingPage = () => {
                       strokeWidth={2.5}
                     />
                   </div>
-
-                  {/* Tooltip on hover */}
-                  <div className="absolute left-10 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                    <div className="bg-[#2b2b2b]  px-3 py-2 rounded-lg text-sm font-secondary  shadow-lg">
-                      {section.name}
-                    </div>
-                  </div>
                 </button>
               );
             })}
           </div>
 
           {/* Active Section Info Panel */}
-          <div className="ml-2">
+          <div className="ml-5 absolute left-full top-0">
             {/* Section Name */}
-            <div className="font-secondary right-3 text-sm text-pink tracking-wider uppercase transition-all duration-300">
+            <div
+              className="relative whitespace-nowrap font-secondary right-3 bg-primary pl-2 pr-4 py-1  text-sm tracking-wider uppercase transition-all duration-300 before:content-[''] before:absolute before:left-0 before:top-0 before:w-0 before:h-0 before:border-t-[14px] before:border-t-transparent before:border-r-[12px] before:border-r-primary before:border-b-[14px] before:border-b-transparent before:-translate-x-full"
+              style={{
+                transform: `translateY(${activeSectionIndex * 52 + 14}px)`,
+              }}
+            >
               {activeSection}
             </div>
           </div>

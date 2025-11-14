@@ -71,12 +71,12 @@ const HeroSection = () => {
           </button>
         </div>
 
-        <div className="fixed bottom-0 mb-10">
-        <WebinarStatus isLive={true} />
-      </div>
+        <div className="fixed bottom-0 mb-10 z-50">
+          <WebinarStatus isLive={true} />
+        </div>
 
         {/* Stats */}
-<div className="flex flex-row gap-8 md:gap-16 text-center">
+        <div className="flex flex-row gap-8 md:gap-16 text-center">
           <div>
             <p className="text-white text-3xl md:text-4xl font-bold font-primary mb-1">
               500+

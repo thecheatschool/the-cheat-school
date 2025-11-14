@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
-import { MessageCircle } from "lucide-react";
+import { Bot, MessageCircle } from "lucide-react";
 
 const Navbar = ({ isChatOpen, setIsChatOpen }) => {
   const [isOpen, setOpen] = useState(false);
@@ -52,7 +52,7 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
               className="p-2 rounded-lg transition-colors mr-2 duration-300 hover:bg-gray-300 dark:hover:bg-gray-600"
               aria-label="Open AI Assistant"
             >
-              <MessageCircle className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+              <Bot className="w-5 h-5 text-gray-700 dark:text-gray-300" />
             </button>
             <ThemeToggle />
             <Hamburger toggled={isOpen} toggle={setOpen} />
