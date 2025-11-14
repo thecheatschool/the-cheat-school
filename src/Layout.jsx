@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/global/Navbar';
 import Footer from './components/global/Footer';
-import AIChatbot from './components/global/AIChatbot';
+import AIChatbot from './components/global/AiChatBot';
 
 const Layout = () => { 
   const [isChatOpen, setIsChatOpen] = useState(false);
