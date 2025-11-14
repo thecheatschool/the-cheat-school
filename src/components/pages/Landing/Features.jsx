@@ -61,7 +61,7 @@ const Features = () => {
         </div>
 
         {/* Timeline */}
-        <div className="relative my-10 flex flex-col after:absolute after:left-[calc(50%_-_2px)] after:h-full after:w-1 after:bg-border after:content-['']">
+        <div className="relative my-10 flex flex-col after:absolute after:left-[20px] lg:after:left-[calc(50%_-_2px)] after:h-full after:w-1 after:bg-border after:content-['']">
           {timelineData.map((data, idx) => {
             const isExpanded = expandedIndex === idx;
             const isOdd = idx % 2 !== 0;
@@ -69,24 +69,24 @@ const Features = () => {
             return (
               <div
                 key={idx}
-                className={`group relative my-[10px] flex w-1/2 ${
+                className={`group relative my-[10px] flex w-full pl-[50px] lg:w-1/2 lg:pl-0 ${
                   isOdd 
-                    ? 'justify-start self-end pl-[30px]' 
-                    : 'justify-end pr-[30px]'
+                    ? 'lg:justify-start lg:self-end lg:pl-[30px]' 
+                    : 'lg:justify-end lg:pr-[30px]'
                 }`}
               >
-                <div className={`relative flex w-full max-w-[95%] flex-col rounded-xl bg-card border border-border p-6 shadow-sm hover:shadow-md transition-all ${
-                  isOdd ? 'items-start text-left' : 'items-end text-right'
-                } after:absolute after:top-[calc(50%-7.5px)] ${
+                <div className={`relative flex w-full lg:max-w-[95%] flex-col rounded-xl bg-card border border-border p-6 shadow-sm hover:shadow-md transition-all items-start text-left ${
+                  isOdd ? 'lg:items-start lg:text-left' : 'lg:items-end lg:text-right'
+                } after:absolute after:top-[calc(50%-7.5px)] after:left-[-7.5px] after:shadow-[-1px_1px_1px_rgba(0,0,0,0.1)] ${
                   isOdd 
-                    ? 'after:left-[-7.5px] after:shadow-[-1px_1px_1px_rgba(0,0,0,0.1)]' 
-                    : 'after:right-[-7.5px] after:shadow-[1px_-1px_1px_rgba(0,0,0,0.1)]'
+                    ? 'lg:after:left-[-7.5px] lg:after:shadow-[-1px_1px_1px_rgba(0,0,0,0.1)]' 
+                    : 'lg:after:right-[-7.5px] lg:after:left-auto lg:after:shadow-[1px_-1px_1px_rgba(0,0,0,0.1)]'
                 } after:h-4 after:w-4 after:rotate-45 after:bg-card after:border-l after:border-t after:border-border after:content-['']`}>
                   
                   {/* Category Tag */}
                   <span
-                    className={`absolute top-4 px-3 py-1.5 text-xs font-bold tracking-wider uppercase rounded-md ${
-                      isOdd ? 'left-4' : 'right-4'
+                    className={`absolute top-4 px-3 py-1.5 text-xs font-bold tracking-wider uppercase rounded-md left-4 ${
+                      isOdd ? 'lg:left-4' : 'lg:right-4 lg:left-auto'
                     }`}
                     style={{ 
                       backgroundColor: data.category.bgColor, 
@@ -97,18 +97,18 @@ const Features = () => {
                   </span>
 
                   {/* Week */}
-                  <time className={`mt-12 text-sm font-semibold text-[#e83f25] ${isOdd ? 'self-start' : 'self-end'}`} style={{fontFamily: 'var(--font-teritiary)'}}>
+                  <time className={`mt-12 text-sm font-semibold text-[#e83f25] self-start ${isOdd ? 'lg:self-start' : 'lg:self-end'}`} style={{fontFamily: 'var(--font-teritiary)'}}>
                     {data.week}
                   </time>
 
                   {/* Title */}
-                  <h3 className={`my-3 text-xl font-bold ${isOdd ? 'text-left' : 'text-right'}`} style={{fontFamily: 'var(--font-primary)'}}>
+                  <h3 className={`my-3 text-xl font-bold text-left ${isOdd ? 'lg:text-left' : 'lg:text-right'}`} style={{fontFamily: 'var(--font-primary)'}}>
                     {data.text}
                   </h3>
 
                   {/* Expandable Details */}
                   {isExpanded && (
-                    <p className={`mb-4 text-sm text-muted-foreground leading-relaxed ${isOdd ? 'text-left' : 'text-right'}`} style={{fontFamily: 'var(--font-secondary)'}}>
+                    <p className={`mb-4 text-sm text-muted-foreground leading-relaxed text-left ${isOdd ? 'lg:text-left' : 'lg:text-right'}`} style={{fontFamily: 'var(--font-secondary)'}}>
                       {data.details}
                     </p>
                   )}
@@ -116,7 +116,7 @@ const Features = () => {
                   {/* Learn More Button */}
                   <button
                     onClick={() => toggleExpand(idx)}
-                    className={`flex items-center gap-2 text-sm font-medium text-[#e83f25] hover:text-[#d63620] transition-colors ${isOdd ? 'self-start' : 'self-end'}`}
+                    className={`flex items-center gap-2 text-sm font-medium text-[#e83f25] hover:text-[#d63620] transition-colors self-start ${isOdd ? 'lg:self-start' : 'lg:self-end'}`}
                     style={{fontFamily: 'var(--font-secondary)'}}
                   >
                     {isExpanded ? (
@@ -131,8 +131,8 @@ const Features = () => {
                   </button>
 
                   {/* Timeline Dot */}
-                  <span className={`absolute top-[calc(50%-10px)] z-10 h-5 w-5 rounded-full border-4 border-[#e83f25] bg-background ${
-                    isOdd ? '-left-[42px]' : '-right-[42px]'
+                  <span className={`absolute top-[calc(50%-10px)] z-10 h-5 w-5 rounded-full border-4 border-[#e83f25] bg-background -left-[42px] ${
+                    isOdd ? 'lg:-left-[42px]' : 'lg:-right-[42px] lg:left-auto'
                   }`} />
                 </div>
               </div>

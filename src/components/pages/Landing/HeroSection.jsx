@@ -7,6 +7,7 @@ import {
   Facebook,
   Twitter,
 } from "lucide-react";
+import WebinarStatus from "./WebinarStatus";
 
 const HeroSection = () => {
   return (
@@ -43,7 +44,7 @@ const HeroSection = () => {
       {/* Main Content */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
         {/* Top Label */}
-        <div className="mb-8">
+        <div className=" mt-17">
           <p className="text-white text-sm md:text-base tracking-[0.3em] uppercase font-secondary">
             EXPLORE
           </p>
@@ -70,8 +71,12 @@ const HeroSection = () => {
           </button>
         </div>
 
+        <div className="fixed bottom-0 mb-10">
+        <WebinarStatus isLive={true} />
+      </div>
+
         {/* Stats */}
-        <div className="flex flex-col sm:flex-row gap-8 md:gap-16 text-center">
+<div className="flex flex-row gap-8 md:gap-16 text-center">
           <div>
             <p className="text-white text-3xl md:text-4xl font-bold font-primary mb-1">
               500+

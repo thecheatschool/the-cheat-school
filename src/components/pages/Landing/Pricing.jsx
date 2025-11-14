@@ -121,15 +121,6 @@ const Pricing = () => {
                   </li>
                 ))}
               </ul>
-
-              {/* CTA Button */}
-              <button
-                className="w-full bg-[#2b2b2b] text-white py-3 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 hover:bg-[#1a1a1a] transition-colors"
-                style={{ fontFamily: 'Inter, sans-serif' }}
-              >
-                Join
-                <ArrowRight className="w-5 h-5" />
-              </button>
             </div>
           ))}
         </div>
