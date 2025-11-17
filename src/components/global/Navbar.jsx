@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../assets/images/the-cheat-school.png";
+import logo from "../../../public/the-cheat-school.png";
 import { NavLink } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { motion, AnimatePresence } from "framer-motion";

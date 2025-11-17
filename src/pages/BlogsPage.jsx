@@ -1,14 +1,14 @@
 import React from "react";
 
-import img1 from "../assets/images/nojob.jpeg";
-import img3 from "../assets/images/internship.jpeg";
-import img4 from "../assets/images/indemand.jpeg";
-import img5 from "../assets/images/degree.jpeg";
-import img6 from "../assets/images/img6.jpeg";
-import img7 from "../assets/images/img7.jpeg";
-import img8 from "../assets/images/img8.jpeg";
-import img9 from "../assets/images/img9.jpeg";
-import img10 from "../assets/images/img10.jpeg";
+import img1 from "../../public/nojob.jpeg";
+import img3 from "../../public/internship.jpeg";
+import img4 from "../../public/indemand.jpeg";
+import img5 from "../../public/degree.jpeg";
+import img6 from "../../public/img6.jpeg";
+import img7 from "../../public/img7.jpeg";
+import img8 from "../../public/img8.jpeg";
+import img9 from "../../public/img9.jpeg";
+import img10 from "../../public/img10.jpeg";
 
 const BlogsData = [
   {
