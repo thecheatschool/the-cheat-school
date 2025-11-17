@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import tcs from "../../assets/images/The Cheat School.png";
+import logo from "../../assets/images/the-cheat-school.png";
 import { NavLink } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,7 +23,7 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
     <div className="top-0 left-0 z-50 m-2 fixed w-[calc(100%-16px)] shadow-xl dark:bg-white/2 bg-white/30 backdrop-blur-lg rounded-xl">
       <div className="container p-0.5">
         <div className="flex items-center justify-between">
-          <img src={tcs} alt="logo" className="object-contain h-[80px]" />
+          <img src={logo} alt="logo" className="object-contain h-[80px]" />
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10">
