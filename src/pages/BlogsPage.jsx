@@ -1,5 +1,6 @@
 import React from "react";
 const BlogsData = [
+  
   {
     id: 1,
     title:
