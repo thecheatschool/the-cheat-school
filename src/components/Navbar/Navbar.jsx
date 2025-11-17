@@ -9,10 +9,10 @@ const Navbar = () => {
   const inactiveClassName = "text-black duration-300 hover:text-red-500";
 
   return (
-    <div className="top-0 left-0 z-50 m-2 shadow-xl bg-white/30 backdrop-blur-lg rounded-xl">
+    <div className="top-0 left-0 z-50 m-2 bg-white/30 backdrop-blur-lg sticky shadow-xl  rounded-xl">
       <div className="container  p-0.5">
         <div className="flex items-center  justify-between">
-          <img src={tcs} alt="logo" className="object-contain h-[80px]" />
+          <img src={tcs} alt="logo" className="object-contain h-20" />
 
           <ul className="hidden md:flex flex-row font-bold text-2xl space-x-10 font-primary cursor-pointer">
             <li>
@@ -48,7 +48,7 @@ const Navbar = () => {
         </div>
 
         {isOpen && (
-          <div className="md:hidden rounded-2xl fixed inset-0 z-40">
+          <div className="md:hidden rounded-2xl fixed  inset-0 z-40">
             <div className="absolute rounded-2xl  inset-0 " onClick={() => setOpen(false)} />
 
             <nav className="relative z-50 bg-white rounded-2xl w-full top-21  p-8 flex flex-col items-center ">
