@@ -9,7 +9,6 @@ import img7 from "../assets/images/img7.jpeg";
 import img8 from "../assets/images/img8.jpeg";
 import img9 from "../assets/images/img9.jpeg";
 import img10 from "../assets/images/img10.jpeg";
-import cheatSchoolImg from "../assets/images/the-cheat-school.png";
 
 const BlogsData = [
   {
