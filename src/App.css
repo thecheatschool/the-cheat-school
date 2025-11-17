@@ -140,7 +140,7 @@
 
 
 .tag {
-  @apply relative font-secondary right-3 text-sm text-pink bg-primary px-4 py-1 tracking-wider uppercase transition-all duration-300;
+  @apply relative font-secondary right-3 text-sm  bg-primary px-4 py-1 tracking-wider uppercase transition-all duration-300;
 }
 
 .tag::before {
