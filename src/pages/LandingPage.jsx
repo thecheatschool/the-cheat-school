@@ -108,9 +108,9 @@ const LandingPage = () => {
           </div>
 
           {/* Active Section Info Panel */}
-          <div className="ml-5 absolute left-full top-0">
+          {/* <div className="ml-5 absolute left-full top-0">
             {/* Section Name */}
-            <div
+          {/*  <div
               className="relative whitespace-nowrap font-secondary right-3 bg-primary pl-2 pr-4 py-1  text-sm tracking-wider uppercase transition-all duration-300 before:content-[''] before:absolute before:left-0 before:top-0 before:w-0 before:h-0 before:border-t-[14px] before:border-t-transparent before:border-r-[12px] before:border-r-primary before:border-b-[14px] before:border-b-transparent before:-translate-x-full"
               style={{
                 transform: `translateY(${activeSectionIndex * 52 + 14}px)`,
@@ -118,7 +118,7 @@ const LandingPage = () => {
             >
               {activeSection}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
