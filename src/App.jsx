@@ -7,7 +7,7 @@ import ContactUs from './pages/ContactUsPage';
 import LandingPage from './pages/LandingPage';
 import BlogsPage from './pages/BlogsPage';
 import BlogDetailPage from './pages/BlogDetailPage';
-
+import NotFound from './not-found';
 
 const router = createBrowserRouter([
   {
@@ -16,29 +16,33 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <LandingPage />, 
+        element: <LandingPage />,
       },
       {
-        path: '/events',
+        path: 'events',
         element: <Events />,
       },
       {
-        path: '/gallery',
+        path: 'gallery',
         element: <Gallery />,
       },
       {
-        path: '/blogs',
+        path: 'blogs',
         element: <BlogsPage />,
       },
       {
-        path: '/blogs/:slug', 
+        path: 'blogs/:slug',
         element: <BlogDetailPage />,
       },
       {
-        path: '/contact-us',
+        path: 'contact-us',
         element: <ContactUs />,
       },
     ],
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ]);
 

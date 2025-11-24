@@ -63,7 +63,6 @@ const BlogDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-dark-grey">
-      {/* Back Button */}
       <div className="max-w-5xl mx-auto px-4 pt-8 mt-21 pb-4">
         <Link 
           to="/blogs" 
