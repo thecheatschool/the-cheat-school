@@ -23,7 +23,7 @@ const CTA = () => {
                     className="inline-flex items-center gap-2 bg-white text-[#e83f25] px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
-                    Start Free Trial
+                    Join our Community
                     <ArrowRight className="w-5 h-5" />
                   </a>
                 </div>

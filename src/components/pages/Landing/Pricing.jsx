@@ -3,16 +3,7 @@ import { Check, ArrowRight } from 'lucide-react'
 
 const Pricing = () => {
   const plans = [
-    {
-      name: 'Starter',
-      price: '199',
-      features: [
-        'Complete Documentation',
-        'Working materials in Sketch',
-        '500MB cloud storage',
-        'Life support'
-      ]
-    },
+    
     {
       name: 'PRO',
       price: '299',
@@ -25,16 +16,7 @@ const Pricing = () => {
         'Premium support'
       ]
     },
-    {
-      name: 'Premium',
-      price: '399',
-      features: [
-        'Complete documentation',
-        'Working materials in Sketch',
-        '2GB cloud storage',
-        'Premium support'
-      ]
-    }
+    
   ]
 
   return (
@@ -74,14 +56,12 @@ const Pricing = () => {
           </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* Pricing Cards - CENTERED */}
+        <div className="flex justify-center">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`bg-white rounded-2xl p-8 ${
-                plan.featured ? 'transform md:-translate-y-4' : ''
-              }`}
+              className="bg-white rounded-2xl p-8 max-w-sm w-full"
             >
               {/* Plan Name */}
               <h3 

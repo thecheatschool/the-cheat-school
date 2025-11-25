@@ -6,14 +6,25 @@ import {
   Instagram,
   Facebook,
   Twitter,
+  ArrowRight,
+  Linkedin,
+  Contact,
+  Phone,
+  MessageCircle,
 } from "lucide-react";
 import WebinarStatus from "./WebinarStatus";
+import { GOOGLE_FORM_URL } from "@/utils/google-form-redirect";
 
 const HeroSection = () => {
   const [currentWord, setCurrentWord] = useState(0);
   const words = ["Theory", "Classroom", "Concepts", "Learning"];
   const [currentPhrase, setCurrentPhrase] = useState(0);
-  const phrases = ["Real Projects", "Site Experience", "Industry Skills", "Practical Work"];
+  const phrases = [
+    "Real Projects",
+    "Site Experience",
+    "Industry Skills",
+    "Practical Work",
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -72,14 +83,23 @@ const HeroSection = () => {
 
       {/* Social Media Icons - Right Side */}
       <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
-        <a href="#" className="text-foreground hover:text-primary transition-colors">
+        <a
+          href="https://www.instagram.com/thecheatschool/"
+          className="text-foreground hover:text-primary transition-colors"
+        >
           <Instagram size={24} />
         </a>
-        <a href="#" className="text-foreground hover:text-primary transition-colors">
-          <Facebook size={24} />
+        <a
+          href="https://www.linkedin.com/company/the-cheat-school/posts/?feedView=all"
+          className="text-foreground hover:text-primary transition-colors"
+        >
+          <Linkedin size={24} />
         </a>
-        <a href="#" className="text-foreground hover:text-primary transition-colors">
-          <Twitter size={24} />
+        <a
+          href="#"
+          className="text-foreground hover:text-primary transition-colors"
+        >
+          <MessageCircle size={24} />
         </a>
       </div>
 
@@ -122,14 +142,26 @@ const HeroSection = () => {
 
         {/* Tagline */}
         <p className="text-foreground/80 text-lg md:text-xl lg:text-2xl font-secondary mb-12 max-w-3xl text-center px-4">
-          From classroom to construction site. Gain hands-on experience and become industry-ready with practical civil engineering training.
+          From classroom to construction site. Gain hands-on experience and
+          become industry-ready with practical civil engineering training.
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
-          <button className="px-8 py-4 bg-[#e83f25] text-white font-semibold font-secondary rounded-lg hover:bg-[#d63820] transition-all duration-300 shadow-lg hover:shadow-xl">
-            Start Learning
-          </button>
+          <a href={GOOGLE_FORM_URL}>
+            <button className="px-8 py-4 bg-[#e83f25] cursor-pointer text-white font-semibold font-secondary rounded-lg hover:bg-[#d63820] transition-all duration-300 shadow-lg hover:shadow-xl">
+              Start Learning
+            </button>
+          </a>
+
+          <div className="flex">
+            <a href={``}>
+              <button className="px-8 py-4 bg-accent-foreground cursor-pointer text-white font-semibold font-secondary rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+                Join Us
+                <ArrowRight />
+              </button>
+            </a>
+          </div>
         </div>
 
         {/* <div className="fixed bottom-0 mb-10 z-50">
@@ -140,28 +172,28 @@ const HeroSection = () => {
         <div className="flex flex-row gap-8 md:gap-16 text-center">
           <div>
             <p className="text-foreground text-3xl md:text-4xl font-bold font-primary mb-1">
-              500+
+              90 Days
             </p>
             <p className="text-foreground/70 text-sm md:text-base font-secondary tracking-wide">
-              Students
+              Job-Ready Transform
             </p>
           </div>
           <div className="hidden sm:block w-px bg-foreground/20"></div>
           <div>
             <p className="text-foreground text-3xl md:text-4xl font-bold font-primary mb-1">
-              50+
+              3+
             </p>
             <p className="text-foreground/70 text-sm md:text-base font-secondary tracking-wide">
-              Courses
+              Live Projects
             </p>
           </div>
           <div className="hidden sm:block w-px bg-foreground/20"></div>
           <div>
             <p className="text-foreground text-3xl md:text-4xl font-bold font-primary mb-1">
-              Expert
+              1:1
             </p>
             <p className="text-foreground/70 text-sm md:text-base font-secondary tracking-wide">
-              Instructors
+              Personality Coaching
             </p>
           </div>
         </div>
