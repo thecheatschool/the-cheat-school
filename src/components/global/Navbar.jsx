@@ -9,12 +9,13 @@ import { Bot, MessageCircle } from "lucide-react";
 const Navbar = ({ isChatOpen, setIsChatOpen }) => {
   const [isOpen, setOpen] = useState(false);
   const activeClassName = "text-primary font-bold";
-  const inactiveClassName = "text-black duration-300 hover:text-red-500";
+  const inactiveClassName = "text-black dark:text-white duration-300 hover:text-red-500 dark:hover:text-red-500";
 
   const navItems = [
     { to: "/", label: "ABOUT US" },
     { to: "blogs", label: "BLOGS" },
     { to: "/contact-us", label: "CONTACT US" },
+    { to: "/events", label: "EVENTS" }
   ];
 
   return (
@@ -25,9 +26,9 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10">
-            <ul className="flex flex-row font-bold text-2xl space-x-10 font-primary cursor-pointer">
+            <ul className="flex flex-row font-bold  text-2xl space-x-10 font-primary cursor-pointer">
               {navItems.map((item) => (
-                <li key={item.to}>
+                <li className="dark:text-white" key={item.to}>  
                   <NavLink
                     className={({ isActive }) =>
                       isActive ? activeClassName : inactiveClassName
