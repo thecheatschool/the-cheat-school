@@ -35,7 +35,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative h-screen mt-26 w-full overflow-hidden">
+    <div className="relative min-h-screen md:h-screen mt-26 w-full overflow-visible">
       {/* Grid & Blocks Background */}
       <div className="absolute inset-0 bg-background dark:bg-background">
         {/* Grid pattern */}
@@ -82,7 +82,15 @@ const HeroSection = () => {
       </div>
 
       {/* Social Media Icons - Right Side */}
-      <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
+
+      <div
+        className="
+  absolute right-8 
+  top-1/3 sm:top-1/2 
+  -translate-y-1/2 
+  flex flex-col gap-6 z-20
+"
+      >
         <a
           href="https://www.instagram.com/thecheatschool/"
           className="text-foreground hover:text-primary transition-colors"
@@ -169,7 +177,8 @@ const HeroSection = () => {
         </div> */}
 
         {/* Stats */}
-        <div className="flex flex-row gap-8 md:gap-16 text-center">
+
+        <div className="flex flex-row gap-8 md:gap-16 sm:mb-30 -mt-8 sm:mt-0 text-center">
           <div>
             <p className="text-foreground text-3xl md:text-4xl font-bold font-primary mb-1">
               90 Days
