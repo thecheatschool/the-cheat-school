@@ -35,7 +35,8 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <div className="relative min-h-screen md:h-screen mt-26 w-full overflow-visible">
+    // NOTE: min-h on mobile is lower so content isn't forced to the very bottom.
+    <div className="relative min-h-[85vh] md:h-screen mt-26 w-full overflow-visible">
       {/* Grid & Blocks Background */}
       <div className="absolute inset-0 bg-background dark:bg-background">
         {/* Grid pattern */}
@@ -82,7 +83,6 @@ const HeroSection = () => {
       </div>
 
       {/* Social Media Icons - Right Side */}
-
       <div
         className="
   absolute right-8 
@@ -118,9 +118,10 @@ const HeroSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center px-4">
+      {/* NOTE: justify-start on mobile so the block doesn't center vertically and push stats to bottom */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-start md:justify-center px-4 py-6 md:py-0">
         {/* Top Label */}
-        <div className="mt-17">
+        <div className="mt-6 md:mt-0">
           <p className="text-foreground/70 text-sm md:text-base tracking-[0.3em] uppercase font-secondary">
             CIVIL ENGINEERING EXCELLENCE
           </p>
@@ -172,13 +173,9 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* <div className="fixed bottom-0 mb-10 z-50">
-          <WebinarStatus isLive={true} />
-        </div> */}
-
         {/* Stats */}
-
-        <div className="flex flex-row gap-8 md:gap-16 sm:mb-30 -mt-8 sm:mt-0 text-center">
+        {/* Removed negative margin; added positive top margin on mobile to move it up from bottom */}
+        <div className="flex flex-row gap-8 md:gap-16 sm:mb-30 mt-6 md:mt-0 text-center">
           <div>
             <p className="text-foreground text-3xl md:text-4xl font-bold font-primary mb-1">
               90 Days
