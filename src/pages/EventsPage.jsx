@@ -1,24 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { getAllEvents, urlFor } from '../services/sanityClient'
-import { Calendar, Clock, MapPin, Monitor, Users, ArrowRight, Loader2, ExternalLink } from 'lucide-react'
+import React from 'react'
+import { urlFor } from '../services/api'
+import { useGetAllEvents } from '../services/useEventsQueries'
+import { ExternalLink } from 'lucide-react'
+import Loader from '../components/global/Loader'
+import ErrorDisplay from '../components/global/ErrorDisplay'
 
 const EventsPage = () => {
-  const [events, setEvents] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-
-  useEffect(() => {
-    getAllEvents()
-      .then((data) => {
-        setEvents(data)
-        setLoading(false)
-      })
-      .catch((err) => {
-        console.error('Error fetching events:', err)
-        setError('Failed to load events')
-        setLoading(false)
-      })
-  }, [])
+  const { data: events = [], isLoading, isError, error } = useGetAllEvents()
 
   const handleJoinEvent = (event) => {
     if (event.registrationLink) {
@@ -37,23 +25,21 @@ const EventsPage = () => {
     }
   }
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto mb-4" />
-          <p className="text-muted-foreground font-secondary">Loading events...</p>
-        </div>
+        <Loader />
       </div>
     )
   }
 
-  if (error) {
+  if (isError) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center">
-          <p className="text-destructive font-secondary text-lg">{error}</p>
-        </div>
+        <ErrorDisplay 
+          heading="Failed to load events" 
+          message={error?.message || 'Unable to fetch events. Please try again later.'}
+        />
       </div>
     )
   }
@@ -102,7 +88,10 @@ const EventsPage = () => {
                   {/* Left column */}
                   <div className="space-y-4">
                     <div>
-                      <p className="text-primary font-primary font-medium">Guest Speakers</p>
+                      <p className="text-primary font-primary font-medium flex items-center gap-2">
+                        <Users className="w-4 h-4" />
+                        Guest Speakers
+                      </p>
                       <div>
                         <ul>
                           {(event.guestSpeakers && event.guestSpeakers.length > 0 ? event.guestSpeakers : []).map((sp, idx) => (
@@ -115,7 +104,10 @@ const EventsPage = () => {
                     </div>
 
                     <div>
-                      <p className="text-primary font-primary font-medium">Date</p>
+                      <p className="text-primary font-primary font-medium flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        Date
+                      </p>
                       <p className="mt-1 dark:text-white text-base font-semibold">
                         {event.date ? new Date(event.date).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) : 'TBA'}
                       </p>
@@ -125,12 +117,18 @@ const EventsPage = () => {
                   {/* Right column */}
                   <div className="space-y-4">
                     <div>
-                      <p className="text-primary font-teritiary font-medium">Event Mode</p>
+                      <p className="text-primary font-teritiary font-medium flex items-center gap-2">
+                        <Monitor className="w-4 h-4" />
+                        Event Mode
+                      </p>
                       <p className="mt-1 dark:text-white text-base font-semibold">{event.mode ? (event.mode === 'online' ? 'Online' : 'Offline') : 'TBA'}</p>
                     </div>
 
                     <div>
-                      <p className="text-primary font-teritiary font-medium">Time</p>
+                      <p className="text-primary font-teritiary font-medium flex items-center gap-2">
+                        <Clock className="w-4 h-4" />
+                        Time
+                      </p>
                       <p className="mt-1 dark:text-white text-base font-semibold">{event.time || 'TBA'}</p>
                     </div>
                   </div>

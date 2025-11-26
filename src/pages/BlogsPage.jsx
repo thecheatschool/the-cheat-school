@@ -1,43 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { getAllBlogs, urlFor } from '../services/sanityClient'
-import { Calendar, User, ArrowRight, Loader2 } from 'lucide-react'
+import { urlFor } from '../services/api'
+import { useGetAllBlogs } from '../services/useBlogsQueries'
+import { ArrowRight } from 'lucide-react'
+import Loader from '../components/global/Loader'
+import ErrorDisplay from '../components/global/ErrorDisplay'
 
 const BlogsPage = () => {
-  const [blogs, setBlogs] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const { data: blogs = [], isLoading, isError, error } = useGetAllBlogs()
 
-  useEffect(() => {
-    getAllBlogs()
-      .then((data) => {
-        setBlogs(data)
-        setLoading(false)
-      })
-      .catch((err) => {
-        console.error('Error fetching blogs:', err)
-        setError('Failed to load blogs')
-        setLoading(false)
-      })
-  }, [])
-
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 animate-spin text-primary mx-auto mb-4" />
-          <p className="text-muted-foreground font-secondary">Loading blogs...</p>
-        </div>
+        <Loader />
       </div>
     )
   }
 
-  if (error) {
+  if (isError) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center">
-          <p className="text-destructive font-secondary text-lg">{error}</p>
-        </div>
+        <ErrorDisplay 
+          heading="Failed to load blogs" 
+          message={error?.message || 'Unable to fetch blogs. Please try again later.'}
+        />
       </div>
     )
   }
