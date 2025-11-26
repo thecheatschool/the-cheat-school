@@ -234,7 +234,8 @@ the-cheat-school/
    VITE_BACKEND_API=http://localhost:8080
    ```
    
-   **📄 For complete environment variables and API keys:** [Download Project Handoff Document](./public/thecheatschool_project_handoff_2025.pdf)
+  **📄 For complete credentials:**
+Contact the developer for the project handoff document.
 
 4. **Run the development server:**
    ```bash
