@@ -2,6 +2,53 @@
 
 ---
 
+## 🌐 DEPLOYMENT URLS
+
+### React Frontend
+- **Development:** http://localhost:5173
+- **Production (Current):** https://talhas-projects-the-cheat-schoole210in1357g0.vercel.app
+- **Production (Final):** Pending deployment on custom domain
+
+### Java Backend API
+- **Development:** http://localhost:8080
+- **Production:** https://thecheatschool-api.onrender.com
+
+---
+
+## 🔑 SERVICE ACCOUNTS & DASHBOARDS
+
+### Database - Neon PostgreSQL
+**Purpose:** Stores form submissions for 30 days as backup when email service fails
+- **Dashboard:** https://console.neon.tech/app/projects/royal-credit-24080024/branches/br-wild-thunder-ahrdgz4k/tables
+- **Login Email:** thecheatschool@gmail.com
+- **Password:** [Use Gmail account password]
+
+### Email Service - Resend
+**Purpose:** Handles all contact form emails and tracks delivery
+- **Dashboard:** https://resend.com/emails
+- **Login Email:** thecheatschool@gmail.com
+- **Password:** [Use Gmail account password]
+
+### Content Management - Sanity CMS
+**Purpose:** Blog creation and content management
+- **Studio (Write Blogs):** https://thecheatschool.sanity.studio
+- **Project Dashboard:** https://www.sanity.io/manage/personal/project/4x6wdy47
+- **Login Email:** thecheatschool@gmail.com
+- **Password:** [Use Gmail account password]
+
+---
+
+## 💻 SOURCE CODE REPOSITORIES
+
+### GitHub Organization
+- **Organization:** https://github.com/thecheatschool
+
+### Repositories
+- **Frontend (React):** https://github.com/thecheatschool/the-cheat-school
+- **Backend (Java Spring Boot):** https://github.com/thecheatschool/the-cheat-school-server
+
+---
+
 ## 📁 Project Structure
 
 ```
@@ -186,6 +233,8 @@ the-cheat-school/
    VITE_USE_BACKEND=sanity
    VITE_BACKEND_API=http://localhost:8080
    ```
+   
+   **📄 For complete environment variables and API keys:** [Download Project Handoff Document](./public/thecheatschool_project_handoff_2025.pdf)
 
 4. **Run the development server:**
    ```bash
