@@ -7,7 +7,7 @@ import ContactUs from './pages/ContactUsPage';
 import LandingPage from './pages/LandingPage';
 import BlogsPage from './pages/BlogsPage';
 import BlogDetailPage from './pages/BlogDetailPage';
-import NotFound from './not-found';
+import NotFound from './pages/not-found';
 
 const router = createBrowserRouter([
   {
