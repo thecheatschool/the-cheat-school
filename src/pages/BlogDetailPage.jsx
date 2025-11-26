@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import { urlFor } from '../services/api'
 import { useGetBlogBySlug } from '../services/useBlogsQueries'
 import PortableText from 'react-portable-text'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Calendar, User, Clock } from 'lucide-react'
 import Loader from '../components/global/Loader'
 import ErrorDisplay from '../components/global/ErrorDisplay'
 

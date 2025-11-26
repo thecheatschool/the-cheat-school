@@ -1,7 +1,7 @@
 import React from 'react'
 import { urlFor } from '../services/api'
 import { useGetAllEvents } from '../services/useEventsQueries'
-import { ExternalLink } from 'lucide-react'
+import { ExternalLink, Calendar, Clock, Monitor, Users } from 'lucide-react'
 import Loader from '../components/global/Loader'
 import ErrorDisplay from '../components/global/ErrorDisplay'
 

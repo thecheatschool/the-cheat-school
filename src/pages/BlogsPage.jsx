@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { urlFor } from '../services/api'
 import { useGetAllBlogs } from '../services/useBlogsQueries'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Calendar, User } from 'lucide-react'
 import Loader from '../components/global/Loader'
 import ErrorDisplay from '../components/global/ErrorDisplay'
 
