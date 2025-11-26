@@ -72,110 +72,77 @@ const EventsPage = () => {
         {/* Events Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.map((event) => (
-            <article 
-              key={event.id || event._id} 
-              className="group bg-card border border-border rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+            <article
+              key={event.id || event._id}
+              className="p-2 mb-4 flex items-center justify-center bg-transparent"
             >
-              {/* Image */}
-              {event.eventImage && (
-                <div className="relative overflow-hidden aspect-video">
-                  <img 
-                    src={urlFor(event.eventImage)} 
-                    alt={event.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
-                  {/* Mode Badge */}
-                  <div className="absolute top-4 right-4">
-                    <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold ${
-                      event.mode === 'online' 
-                        ? 'bg-blue-500 text-white' 
-                        : 'bg-green-500 text-white'
-                    }`}>
-                      {event.mode === 'online' ? <Monitor className="w-3 h-3" /> : <MapPin className="w-3 h-3" />}
-                      {event.mode === 'online' ? 'ONLINE' : 'OFFLINE'}
-                    </span>
-                  </div>
-                </div>
-              )}
+              <div className="max-w-3xl group border border-black/20 dark:border-white/30 rounded-3xl dark:bg-black duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.45)] hover:dark:shadow-[0_12px_30px_rgba(255,255,255,0.12)] transition-transform hover:-translate-y-0.5 w-full">
 
-              {/* Content */}
-              <div className="p-6">
-                {/* Title */}
-                <h2 className="text-2xl font-primary font-bold text-card-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                  {event.title}
-                </h2>
-
-                {/* Meta Info */}
-                <div className="flex flex-col gap-2 text-sm text-muted-foreground font-secondary mb-4">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>{new Date(event.date).toLocaleDateString('en-US', {
-                      weekday: 'short',
-                      year: 'numeric',
-                      month: 'short',
-                      day: 'numeric'
-                    })}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    <span>{event.time}</span>
-                  </div>
-                  {event.location && (
-                    <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
-                      <span className="line-clamp-1">{event.location}</span>
-                    </div>
+                <div className="relative overflow-hidden rounded-t-3xl">
+                  {event.eventImage ? (
+                    <img
+                      className="h-[260px] object-cover rounded-t-3xl w-full group-hover:shadow-lg group-hover:scale-102 transition-transform duration-300"
+                      src={urlFor(event.eventImage)}
+                      alt={event.title}
+                    />
+                  ) : (
+                    <div className="h-[260px] bg-muted rounded-t-3xl w-full" />
                   )}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
-                {/* Description */}
-                {event.description && (
-                  <p className="text-muted-foreground font-secondary mb-4 line-clamp-3">
-                    {event.description}
-                  </p>
-                )}
+                {/* Header */}
+                <div className="text-black dark:text-white text-center p-1 mt-2 text-3xl font-primary">
+                  {event.title}
+                </div>
+                <div className="mt-3 mx-auto h-px bg-primary dark:bg-white/10 w-[200px]" />
 
-                {/* Guest Speakers */}
-                {event.guestSpeakers && event.guestSpeakers.length > 0 && (
-                  <div className="mb-6">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground font-secondary mb-2">
-                      <Users className="w-4 h-4" />
-                      <span className="font-semibold">Guest Speakers:</span>
+                {/* Content */}
+                <div className="mt-4 p-3 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-sm md:text-sm">
+                  {/* Left column */}
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-primary font-primary font-medium">Guest Speakers</p>
+                      <div>
+                        <ul>
+                          {(event.guestSpeakers && event.guestSpeakers.length > 0 ? event.guestSpeakers : []).map((sp, idx) => (
+                            <li className="font-secondary font-semibold text-sm" key={idx}>
+                              {sp.name || sp}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <div className="flex flex-wrap gap-2">
-                      {event.guestSpeakers.slice(0, 3).map((speaker, index) => (
-                        <div key={index} className="flex items-center gap-2 bg-muted px-3 py-1 rounded-full">
-                          {speaker.photo && (
-                            <img 
-                              src={urlFor(speaker.photo)} 
-                              alt={speaker.name}
-                              className="w-6 h-6 rounded-full object-cover"
-                            />
-                          )}
-                          <span className="text-xs font-medium text-card-foreground">
-                            {speaker.name}
-                          </span>
-                        </div>
-                      ))}
-                      {event.guestSpeakers.length > 3 && (
-                        <span className="text-xs text-muted-foreground self-center">
-                          +{event.guestSpeakers.length - 3} more
-                        </span>
-                      )}
+
+                    <div>
+                      <p className="text-primary font-primary font-medium">Date</p>
+                      <p className="mt-1 dark:text-white text-base font-semibold">
+                        {event.date ? new Date(event.date).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) : 'TBA'}
+                      </p>
                     </div>
                   </div>
-                )}
 
-                {/* Join Now Button */}
-                <button 
-                  onClick={() => handleJoinEvent(event)}
-                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-teritiary font-semibold px-6 py-3 rounded-md transition-all duration-300 group/btn w-full justify-center"
-                >
-                  <span>JOIN NOW</span>
-                  <ExternalLink className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                </button>
+                  {/* Right column */}
+                  <div className="space-y-4">
+                    <div>
+                      <p className="text-primary font-teritiary font-medium">Event Mode</p>
+                      <p className="mt-1 dark:text-white text-base font-semibold">{event.mode ? (event.mode === 'online' ? 'Online' : 'Offline') : 'TBA'}</p>
+                    </div>
+
+                    <div>
+                      <p className="text-primary font-teritiary font-medium">Time</p>
+                      <p className="mt-1 dark:text-white text-base font-semibold">{event.time || 'TBA'}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Button */}
+                <div className="mt-4 mb-4 flex justify-center">
+                  <button onClick={() => handleJoinEvent(event)} className="px-8 py-2 font-primary rounded-md bg-primary hover:bg-red-500 duration-200 transition-transform text-white text-lg font-medium tracking-wide shadow-[0_8px_20px_rgba(0,0,0,0.25)] ">
+                    View Event <span className="ml-2">→</span>
+                  </button>
+                </div>
+
               </div>
             </article>
           ))}
