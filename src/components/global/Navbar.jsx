@@ -1,22 +1,35 @@
 import React, { useState } from "react";
 import logo from "../../../public/the-cheat-school.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ThemeToggle from "./ThemeToggle";
-import { Bot, MessageCircle } from "lucide-react";
+import { Bot, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
 
 const Navbar = ({ isChatOpen, setIsChatOpen }) => {
   const [isOpen, setOpen] = useState(false);
+  const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const activeClassName = "text-primary font-bold";
   const inactiveClassName = "text-black duration-300 hover:text-red-500";
+  const navigate = useNavigate();
 
   const navItems = [
     { to: "/", label: "ABOUT US" },
     { to: "blogs", label: "BLOGS" },
-    {to: "events", label: "EVENTS"},
+    { to: "events", label: "EVENTS" },
     { to: "/contact-us", label: "CONTACT US" },
   ];
+
+  const coursesItems = [
+    { to: "/civil-engineering", label: "Civil Engineering" },
+    { to: "/ai-engineering", label: "AI Engineering" },
+  ];
+
+  const handleCourseClick = (to) => {
+    navigate(to);
+    setIsCoursesOpen(false);
+    setOpen(false);
+  };
 
   return (
     <div className="top-0 left-0 z-50 m-2 fixed w-[calc(100%-16px)] shadow-xl dark:bg-white/2 bg-white/30 backdrop-blur-lg rounded-xl">
@@ -39,6 +52,42 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
                   </NavLink>
                 </li>
               ))}
+              
+              {/* Courses Dropdown */}
+              <li 
+                className="relative"
+                onMouseEnter={() => setIsCoursesOpen(true)}
+                onMouseLeave={() => setIsCoursesOpen(false)}
+              >
+                <button className={`flex items-center gap-1 ${inactiveClassName}`}>
+                  COURSES
+                  {isCoursesOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                </button>
+                
+                <AnimatePresence>
+                  {isCoursesOpen && (
+                    <motion.div
+                      className="absolute top-full left-0 mt-2 w-48 bg-white/90 backdrop-blur-sm rounded-xl shadow-xl border border-gray-200"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <div className="py-2">
+                        {coursesItems.map((course) => (
+                          <button
+                            key={course.to}
+                            onClick={() => handleCourseClick(course.to)}
+                            className="w-full text-left px-4 py-2 text-lg font-semibold text-black hover:bg-red-50 hover:text-red-500 transition-colors duration-300"
+                          >
+                            {course.label}
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </li>
             </ul>
             <ThemeToggle />
           </div>
@@ -105,6 +154,51 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
                       </NavLink>
                     </motion.li>
                   ))}
+                  
+                  {/* Mobile Courses Dropdown */}
+                  <motion.li
+                    className="w-full"
+                    initial={{ x: -10, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{ delay: navItems.length * 0.1 }}
+                  >
+                    <div className="text-center">
+                      <button
+                        onClick={() => setIsCoursesOpen(!isCoursesOpen)}
+                        className={`${inactiveClassName} flex items-center justify-center gap-1 w-full text-lg font-semibold`}
+                      >
+                        COURSES
+                        {isCoursesOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                      </button>
+                      
+                      <AnimatePresence>
+                        {isCoursesOpen && (
+                          <motion.div
+                            className="mt-2 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-200"
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <div className="py-2">
+                              {coursesItems.map((course, index) => (
+                                <motion.button
+                                  key={course.to}
+                                  onClick={() => handleCourseClick(course.to)}
+                                  className="w-full text-center px-4 py-2 text-lg font-semibold text-black hover:bg-red-50 hover:text-red-500 transition-colors duration-300"
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: index * 0.1 }}
+                                >
+                                  {course.label}
+                                </motion.button>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </motion.li>
                 </ul>
               </motion.nav>
             </motion.div>

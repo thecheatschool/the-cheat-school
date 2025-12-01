@@ -25,7 +25,7 @@ const AboutUs = () => {
             className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
-            India's first comprehensive civil engineering bootcamp that transforms students into industry-ready professionals in just 90 days with hands-on projects and personalized coaching.
+            India's first comprehensive professional bootcamp that transforms students into industry-ready professionals in just 90 days with hands-on projects and personalized coaching.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ const AboutUs = () => {
               Certified
             </div>
             <div className="text-xs sm:text-sm text-gray-600" style={{ fontFamily: "Inter, sans-serif" }}>
-              AutoCAD + Revit
+              Industry Certified
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ const AboutUs = () => {
                   </h3>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
-                  Master AutoCAD, Revit, BIM tools, and project management software used by top firms.
+                  Master industry-standard software, tools, and technologies used by top firms.
                 </p>
               </div>
 
@@ -122,7 +122,7 @@ const AboutUs = () => {
                   <div className="w-full h-full flex items-center justify-center">
                     <img
                       src="https://img.freepik.com/premium-photo/asian-two-business-man-construction-engineers-supervising-progress-construction-project-construction-site_61243-1493.jpg?w=2000"
-                      alt="Civil Engineering Education"
+                      alt="Professional Training Education"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -145,7 +145,7 @@ const AboutUs = () => {
                   </h3>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
-                  Work on real construction sites with mentor guidance and actual project documentation.
+                  Work on real industry projects with mentor guidance and actual professional documentation.
                 </p>
               </div>
 
@@ -161,7 +161,7 @@ const AboutUs = () => {
                   </h3>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed" style={{ fontFamily: "Inter, sans-serif" }}>
-                  Graduate with a real 2BHK design set, BOQ, schedules, and AI-assisted engineering projects.
+                  Graduate with a complete professional portfolio, project deliverables, and industry certifications.
                 </p>
               </div>
 

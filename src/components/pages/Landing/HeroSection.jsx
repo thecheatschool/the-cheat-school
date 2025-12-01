@@ -1,18 +1,11 @@
 import React, { useState, useEffect } from "react";
 import {
-  Calendar,
-  User,
   ChevronDown,
   Instagram,
-  Facebook,
-  Twitter,
   ArrowRight,
   Linkedin,
-  Contact,
-  Phone,
   MessageCircle,
 } from "lucide-react";
-import WebinarStatus from "./WebinarStatus";
 import { GOOGLE_FORM_URL } from "@/utils/google-form-redirect";
 
 const HeroSection = () => {
@@ -35,7 +28,6 @@ const HeroSection = () => {
   }, []);
 
   return (
-    // NOTE: min-h on mobile is lower so content isn't forced to the very bottom.
     <div className="relative min-h-[85vh] md:h-screen mt-26 w-full overflow-visible">
       {/* Grid & Blocks Background */}
       <div className="absolute inset-0 bg-background dark:bg-background">
@@ -83,26 +75,21 @@ const HeroSection = () => {
       </div>
 
       {/* Social Media Icons - Right Side */}
-      <div
-        className="
-  absolute right-8 
-  top-1/3 sm:top-1/2 
-  -translate-y-1/2 
-  flex flex-col gap-6 z-20
-"
-      >
+      <div className="absolute right-8 top-1/3 sm:top-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
         <a
           href="https://www.instagram.com/thecheatschool/"
           className="text-foreground hover:text-primary transition-colors"
         >
           <Instagram size={24} />
         </a>
+
         <a
           href="https://www.linkedin.com/company/the-cheat-school/posts/?feedView=all"
           className="text-foreground hover:text-primary transition-colors"
         >
           <Linkedin size={24} />
         </a>
+
         <a
           href="#"
           className="text-foreground hover:text-primary transition-colors"
@@ -118,12 +105,11 @@ const HeroSection = () => {
       </div>
 
       {/* Main Content */}
-      {/* NOTE: justify-start on mobile so the block doesn't center vertically and push stats to bottom */}
       <div className="relative z-10 h-full flex flex-col items-center justify-start md:justify-center px-4 py-6 md:py-0">
         {/* Top Label */}
         <div className="mt-6 md:mt-0">
           <p className="text-foreground/70 text-sm md:text-base tracking-[0.3em] uppercase font-secondary">
-            CIVIL ENGINEERING EXCELLENCE
+            PROFESSIONAL EXCELLENCE
           </p>
         </div>
 
@@ -151,8 +137,8 @@ const HeroSection = () => {
 
         {/* Tagline */}
         <p className="text-foreground/80 text-lg md:text-xl lg:text-2xl font-secondary mb-12 max-w-3xl text-center px-4">
-          From classroom to construction site. Gain hands-on experience and
-          become industry-ready with practical civil engineering training.
+          From learning to doing. Gain hands-on experience and become
+          industry-ready with practical professional training.
         </p>
 
         {/* CTA Buttons */}
@@ -164,7 +150,7 @@ const HeroSection = () => {
           </a>
 
           <div className="flex">
-            <a href={``}>
+            <a href="">
               <button className="px-8 py-4 bg-accent-foreground cursor-pointer text-white font-semibold font-secondary rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
                 Join Us
                 <ArrowRight />
@@ -174,7 +160,6 @@ const HeroSection = () => {
         </div>
 
         {/* Stats */}
-        {/* Removed negative margin; added positive top margin on mobile to move it up from bottom */}
         <div className="flex flex-row gap-8 md:gap-16 sm:mb-30 mt-6 md:mt-0 text-center">
           <div>
             <p className="text-foreground text-3xl md:text-4xl font-bold font-primary mb-1">
