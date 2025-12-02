@@ -1,4 +1,4 @@
-import ComingSoon from '@/components/pages/ComingSoon'
+import ComingSoon from '@/components/global/ComingSoon'
 import React from 'react'
 
 const AiEngineering = () => {
