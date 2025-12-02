@@ -117,9 +117,9 @@ const SkillsMastered = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <div className="bg-green-50 border-l-4 border-green-500 rounded-r-xl p-6 inline-block max-w-3xl">
-            <p className="text-sm font-semibold text-green-800 max-w-2xl">
+        <div className="text-left mt-12">
+          <div className="bg-green-50 border-l-4 border-green-500 rounded-r-xl p-6 max-w-3xl">
+            <p className="text-sm font-semibold text-green-800">
               <span className="font-bold text-green-700">BONUS:</span> Weekly
               personality development, mock client meetings, teamwork exercises,
               and professional communication skills integrated throughout all 3
