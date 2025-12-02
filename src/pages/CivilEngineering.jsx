@@ -1,10 +1,8 @@
-import React, { useState } from "react";
-import CourseOverview from "@/components/pages/explore/civil/CourseOverview";
-import Features from "@/components/pages/explore/civil/Features";
-import SocialMediaSchedule from "@/components/pages/explore/civil/SocialMediaSchedule";
-import InternshipDocumentation from "@/components/pages/explore/civil/InternshipDocumentation";
-import CertificationMetrics from "@/components/pages/explore/civil/CertificationMetrics";
-import SkillsMastered from "@/components/pages/explore/civil/SkillsMastered";
+import CourseOverview from "@/components/pages/civil/CourseOverview";
+import SkillsMastered from "@/components/pages/civil/SkillsMastered";
+import Features from "@/components/pages/civil/Features";
+import React from "react";
+import RequirementsGameMap from "@/components/pages/civil/RequirementsGameMap";
 
 const CivilEngineering = () => {
   return (
@@ -12,9 +10,7 @@ const CivilEngineering = () => {
       <CourseOverview />
       <SkillsMastered />
       <Features />
-      <SocialMediaSchedule />
-      <InternshipDocumentation />
-      <CertificationMetrics />
+     <RequirementsGameMap/>
     </div>
   );
 };

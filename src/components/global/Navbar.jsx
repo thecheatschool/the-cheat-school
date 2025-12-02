@@ -40,30 +40,34 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-10">
             <ul className="flex flex-row font-bold text-2xl space-x-10 font-primary cursor-pointer">
-              {navItems.map((item) => (
-                <li key={item.to}>
-                  <NavLink
-                    className={({ isActive }) =>
-                      isActive ? activeClassName : inactiveClassName
-                    }
-                    to={item.to}
-                  >
-                    {item.label}
-                  </NavLink>
-                </li>
-              ))}
-              
-              {/* Courses Dropdown */}
-              <li 
+
+              {/* 1. ABOUT US */}
+              <li>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? activeClassName : inactiveClassName
+                  }
+                  to="/"
+                >
+                  ABOUT US
+                </NavLink>
+              </li>
+
+              {/* 2. COURSES — moved here */}
+              <li
                 className="relative"
                 onMouseEnter={() => setIsCoursesOpen(true)}
                 onMouseLeave={() => setIsCoursesOpen(false)}
               >
                 <button className={`flex items-center gap-1 ${inactiveClassName}`}>
                   COURSES
-                  {isCoursesOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                  {isCoursesOpen ? (
+                    <ChevronUp className="w-4 h-4" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4" />
+                  )}
                 </button>
-                
+
                 <AnimatePresence>
                   {isCoursesOpen && (
                     <motion.div
@@ -88,13 +92,26 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
                   )}
                 </AnimatePresence>
               </li>
+
+              {/* 3. Remaining nav items */}
+              {navItems.slice(1).map((item) => (
+                <li key={item.to}>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive ? activeClassName : inactiveClassName
+                    }
+                    to={item.to}
+                  >
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
             <ThemeToggle />
           </div>
 
           {/* Mobile Header Section */}
           <div className="flex items-center space-x-4 md:hidden">
-            {/* Chatbot Trigger for mobile - styled like ThemeToggle */}
             <button
               onClick={() => setIsChatOpen(!isChatOpen)}
               className="p-2 rounded-lg transition-colors mr-2 duration-300 hover:bg-gray-300 dark:hover:bg-gray-600"
@@ -133,34 +150,31 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
                 <ul className="flex flex-col font-primary text-xl items-center gap-6 w-full max-w-sm">
-                  {navItems.map((item, i) => (
-                    <motion.li
-                      key={item.to}
-                      className="w-full"
-                      initial={{ x: -10, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      transition={{ delay: i * 0.1 }}
-                    >
-                      <NavLink
-                        to={item.to}
-                        onClick={() => setOpen(false)}
-                        className={({ isActive }) =>
-                          `${
-                            isActive ? activeClassName : inactiveClassName
-                          } block w-full text-center text-lg font-semibold`
-                        }
-                      >
-                        {item.label}
-                      </NavLink>
-                    </motion.li>
-                  ))}
-                  
-                  {/* Mobile Courses Dropdown */}
+
+                  {/* 1. ABOUT US */}
                   <motion.li
                     className="w-full"
                     initial={{ x: -10, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: navItems.length * 0.1 }}
+                  >
+                    <NavLink
+                      to="/"
+                      onClick={() => setOpen(false)}
+                      className={({ isActive }) =>
+                        `${
+                          isActive ? activeClassName : inactiveClassName
+                        } block w-full text-center text-lg font-semibold`
+                      }
+                    >
+                      ABOUT US
+                    </NavLink>
+                  </motion.li>
+
+                  {/* 2. COURSES — moved here */}
+                  <motion.li
+                    className="w-full"
+                    initial={{ x: -10, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
                   >
                     <div className="text-center">
                       <button
@@ -168,9 +182,13 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
                         className={`${inactiveClassName} flex items-center justify-center gap-1 w-full text-lg font-semibold`}
                       >
                         COURSES
-                        {isCoursesOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                        {isCoursesOpen ? (
+                          <ChevronUp className="w-4 h-4" />
+                        ) : (
+                          <ChevronDown className="w-4 h-4" />
+                        )}
                       </button>
-                      
+
                       <AnimatePresence>
                         {isCoursesOpen && (
                           <motion.div
@@ -199,6 +217,29 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
                       </AnimatePresence>
                     </div>
                   </motion.li>
+
+                  {/* 3. Remaining nav items */}
+                  {navItems.slice(1).map((item, i) => (
+                    <motion.li
+                      key={item.to}
+                      className="w-full"
+                      initial={{ x: -10, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ delay: (i + 1) * 0.1 }}
+                    >
+                      <NavLink
+                        to={item.to}
+                        onClick={() => setOpen(false)}
+                        className={({ isActive }) =>
+                          `${
+                            isActive ? activeClassName : inactiveClassName
+                          } block w-full text-center text-lg font-semibold`
+                        }
+                      >
+                        {item.label}
+                      </NavLink>
+                    </motion.li>
+                  ))}
                 </ul>
               </motion.nav>
             </motion.div>

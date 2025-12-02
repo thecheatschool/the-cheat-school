@@ -71,7 +71,7 @@ const SkillsMastered = () => {
         <div className="text-center mt-12">
           <div className="bg-green-50 border border-green-200 rounded-xl p-6 inline-block">
             <p className="text-sm font-semibold text-green-800 max-w-2xl">
-              🎯 Plus: Weekly personality development, mock client meetings, teamwork exercises, 
+              Bonus : Weekly personality development, mock client meetings, teamwork exercises, 
               and professional communication skills integrated throughout all 3 months
             </p>
           </div>
