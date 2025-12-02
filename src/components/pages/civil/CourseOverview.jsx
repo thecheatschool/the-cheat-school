@@ -43,10 +43,9 @@ const CourseOverview = () => {
   ];
 
   return (
-    <section className="py-32 mt-12 bg-background relative overflow-hidden">
+    <section className="py-32 mt-2 bg-background relative overflow-hidden">
       {/* Subtle background elements */}
       <div className="absolute top-10 right-10 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-      <div className="absolute bottom-20 left-10 w-1 h-1 bg-secondary rounded-full"></div>
       <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-primary/30 rounded-full"></div>
 
       <div className="max-w-6xl mx-auto px-6">
@@ -195,7 +194,7 @@ const CourseOverview = () => {
                         {item.activity}
                       </div>
                     </div>
-                    <div className="text-primary font-secondary font-semibold bg-primary/10 px-3 py-1 rounded-md">
+                    <div className="text-primary font-secondary font-semibold bg-primary/10 px-3 py-1 rounded-md text-xs sm:text-sm md:text-base whitespace-nowrap">
                       {item.time}
                     </div>
                   </div>

@@ -1,38 +1,81 @@
 import React from "react";
-import { Cpu, DraftingCompass, Building, Calculator, Calendar, User } from "lucide-react";
+import {
+  Cpu,
+  DraftingCompass,
+  Building,
+  Calculator,
+  Calendar,
+  User,
+} from "lucide-react";
 
 const SkillsMastered = () => {
   const skills = [
     {
       category: "Design & Drafting",
       icon: DraftingCompass,
-      skills: ["AutoCAD Basics & Advanced", "Revit Modeling", "2BHK Floor Plans", "Sections & Elevations", "Layers & Annotations"]
+      skills: [
+        "AutoCAD Basics & Advanced",
+        "Revit Modeling",
+        "2BHK Floor Plans",
+        "Sections & Elevations",
+        "Layers & Annotations",
+      ],
     },
     {
       category: "Project Management",
       icon: Calendar,
-      skills: ["MS Project/Primavera", "Gantt Charts", "Critical Path Method", "Resource Allocation", "Manpower Planning"]
+      skills: [
+        "MS Project/Primavera",
+        "Gantt Charts",
+        "Critical Path Method",
+        "Resource Allocation",
+        "Manpower Planning",
+      ],
     },
     {
       category: "Quantity Surveying",
       icon: Calculator,
-      skills: ["BOQ Estimation", "Material Takeoff", "Costing", "2BHK Project Estimation", "Professional Reporting"]
+      skills: [
+        "BOQ Estimation",
+        "Material Takeoff",
+        "Costing",
+        "2BHK Project Estimation",
+        "Professional Reporting",
+      ],
     },
     {
       category: "AI in Civil Engineering",
       icon: Cpu,
-      skills: ["Generative Design", "AI Automation", "Predictive Scheduling", "Computer Vision Safety", "Clash Detection"]
+      skills: [
+        "Generative Design",
+        "AI Automation",
+        "Predictive Scheduling",
+        "Computer Vision Safety",
+        "Clash Detection",
+      ],
     },
     {
       category: "Structural Basics",
       icon: Building,
-      skills: ["RCC Design", "Load Distribution", "Structural Elements", "Construction Materials", "Building Codes"]
+      skills: [
+        "RCC Design",
+        "Load Distribution",
+        "Structural Elements",
+        "Construction Materials",
+        "Building Codes",
+      ],
     },
     {
       category: "Professional Development",
       icon: User,
-      skills: ["Communication Skills", "Presentation Skills", "LinkedIn Profile", "CV Refinement", "Interview Preparation"]
-    }
+      skills: [
+        "Communication Skills",
+        "Presentation Skills",
+        "LinkedIn Profile",
+        "CV Refinement",
+        "Interview Preparation",
+      ],
+    },
   ];
 
   return (
@@ -43,18 +86,24 @@ const SkillsMastered = () => {
             SKILLS YOU'LL <span className="text-[#e83f25]">MASTER</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-[Inter]">
-            Comprehensive 90-day skill development across civil engineering domains
+            Comprehensive 90-day skill development across civil engineering
+            domains
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((category, index) => (
-            <div key={index} className="bg-card border border-border rounded-xl p-6">
+            <div
+              key={index}
+              className="bg-card border border-border rounded-xl p-6"
+            >
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-[#e83f25] rounded-lg">
                   <category.icon className="w-5 h-5 text-white" />
                 </div>
-                <h3 className="text-xl font-bold font-[Antonio]">{category.category}</h3>
+                <h3 className="text-xl font-bold font-[Antonio]">
+                  {category.category}
+                </h3>
               </div>
               <div className="space-y-2">
                 {category.skills.map((skill, skillIndex) => (
@@ -69,10 +118,12 @@ const SkillsMastered = () => {
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-green-50 border border-green-200 rounded-xl p-6 inline-block">
+          <div className="bg-green-50 border-l-4 border-green-500 rounded-r-xl p-6 inline-block max-w-3xl">
             <p className="text-sm font-semibold text-green-800 max-w-2xl">
-              Bonus : Weekly personality development, mock client meetings, teamwork exercises, 
-              and professional communication skills integrated throughout all 3 months
+              <span className="font-bold text-green-700">BONUS:</span> Weekly
+              personality development, mock client meetings, teamwork exercises,
+              and professional communication skills integrated throughout all 3
+              months
             </p>
           </div>
         </div>
