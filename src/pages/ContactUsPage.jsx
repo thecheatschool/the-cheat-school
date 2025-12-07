@@ -176,7 +176,7 @@ const ContactUsPage = () => {
             <div className="mb-5">
               <select
                 {...register('branch')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-white/30 bg-white"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-black dark:text-white dark:bg-black bg-white"
               >
                 <option value="">Branch *</option>
                 <option value="Civil">Civil</option>
@@ -196,7 +196,7 @@ const ContactUsPage = () => {
             <div className="mb-5">
               <select
                 {...register('hearAboutUs')}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary dark:bg-white/30 bg-white"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary  text-black dark:text-white dark:bg-black bg-white"
               >
                 <option value="">How did you hear about us? *</option>
                 <option value="WhatsApp Group">WhatsApp Group</option>
