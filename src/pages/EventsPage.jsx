@@ -32,7 +32,7 @@ const EventsPage = () => {
             </div>
 
             {/* Header */}
-            <div className="text-black text-center p-2 mt-3 text-[40px] font-primary">
+            <div className="text-black dark:text-white group-hover:text-primary dark:group-hover:text-primary text-center cursor-pointer p-2 mt-3 text-[40px] font-primary">
               Civil Career Webinar
             </div>
             <div className="mt-4 mx-auto h-px bg-primary dark:bg-white/10 w-[250px]" />
