@@ -1,26 +1,8 @@
-import axios from 'axios'
-import { createClient } from '@sanity/client'
-import imageUrlBuilder from '@sanity/image-url'
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { API_BASE_URL, sanityClient, USE_BACKEND } from './api';
 
-//Initially, we are using the Sanity React SDK directly. As a fallback, we have a Spring Boot backend. 
-//This setup will be used in `/blogs`.
-
-const USE_BACKEND = import.meta.env.VITE_USE_BACKEND || 'springboot'
-const API_BASE_URL = import.meta.env.VITE_BACKEND_API || 'http://localhost:8080'
-
-console.log('🔧 Backend Mode:', USE_BACKEND)
-console.log('🌐 API URL:', API_BASE_URL)
-
-const sanityClient = createClient({
-  projectId: '4x6wdy47',
-  dataset: 'production',
-  useCdn: true,
-  apiVersion: '2024-01-01',
-})
-
-const builder = imageUrlBuilder(sanityClient)
-
-export const getAllBlogs = async () => {
+const getAllBlogs = async () => {
   if (USE_BACKEND === 'sanity') {
     console.log('📡 Fetching all blogs from SANITY DIRECT API')
     const query = `*[_type == "post"] | order(publishedAt desc) {
@@ -43,7 +25,7 @@ export const getAllBlogs = async () => {
   }
 }
 
-export const getBlogBySlug = async (slug) => {
+const getBlogBySlug = async (slug) => {
   if (USE_BACKEND === 'sanity') {
     console.log('📡 Fetching blog by slug from SANITY DIRECT API:', slug)
     const query = `*[_type == "post" && slug.current == $slug][0] {
@@ -66,16 +48,33 @@ export const getBlogBySlug = async (slug) => {
   }
 }
 
-export const urlFor = (source) => {
-  if (USE_BACKEND === 'sanity') {
-    console.log('🖼️ Building image URL using SANITY image builder')
-    return builder.image(source).url()
-  } else {
-    console.log('🖼️ Building image URL from SPRING BOOT data')
-    if (!source?.asset?._ref) return ''
-    const ref = source.asset._ref
-    const [, id, dimensions, format] = ref.split('-')
-    return `https://cdn.sanity.io/images/4x6wdy47/production/${id}-${dimensions}.${format}`
-  }
-}
-export const client = sanityClient
+//getting all blogs in /blogs
+export const useGetAllBlogs = () => {
+  return useQuery({
+    queryKey: ['blogs', 'list'],
+    queryFn: getAllBlogs,
+    staleTime: 5 * 60 * 1000, // Data stays fresh for 5 minutes
+    gcTime: 10 * 60 * 1000, // Cache persists for 10 minutes
+    refetchOnWindowFocus: false, // Don't refetch when window focuses
+    refetchOnMount: true, // Refetch when component mounts
+    refetchOnReconnect: true, // Refetch when internet reconnects
+    retry: 3, // Retry failed requests 3 times
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000), // Exponential backoff
+  });
+};
+
+//getting blogs by slug in /blogs/:slug
+export const useGetBlogBySlug = (slug) => {
+  return useQuery({
+    queryKey: ['blogs', 'detail', slug],
+    queryFn: () => getBlogBySlug(slug),
+    enabled: !!slug, // Only run if slug exists
+    staleTime: 10 * 60 * 1000, // Data stays fresh for 10 minutes
+    gcTime: 30 * 60 * 1000, // Cache persists for 30 minutes
+    refetchOnWindowFocus: false,
+    refetchOnMount: true,
+    refetchOnReconnect: true,
+    retry: 2,
+    retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
+  });
+};

@@ -1,59 +1,41 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { getBlogBySlug, urlFor } from '../services/sanityClient'
+import { urlFor } from '../services/api'
+import { useGetBlogBySlug } from '../services/useBlogsQueries'
 import PortableText from 'react-portable-text'
 import { ArrowLeft, Calendar, User, Clock } from 'lucide-react'
+import Loader from '../components/global/Loader'
+import ErrorDisplay from '../components/global/ErrorDisplay'
 
 const BlogDetailPage = () => {
   const { slug } = useParams()
-  const [blog, setBlog] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const { data: blog, isLoading, isError, error } = useGetBlogBySlug(slug)
 
-  useEffect(() => {
-    getBlogBySlug(slug)
-      .then((data) => {
-        setBlog(data)
-        setLoading(false)
-      })
-      .catch((err) => {
-        console.error('Error fetching blog:', err)
-        setError('Failed to load blog')
-        setLoading(false)
-      })
-  }, [slug])
-
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-dark-grey">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-secondary font-secondary text-lg">Loading article...</p>
-        </div>
+        <Loader />
       </div>
     )
   }
 
-  if (error || !blog) {
+  if (isError || !blog) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-dark-grey px-4">
         <div className="text-center max-w-md">
-          <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-            <span className="text-5xl">😕</span>
+          <ErrorDisplay 
+            heading={error?.message || 'Blog not found!'}
+            message="The article you're looking for doesn't exist or has been removed."
+          />
+          <div className="mt-6">
+            <Link 
+              to="/blogs" 
+              className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-secondary font-medium transition-all duration-300 hover:gap-3"
+            >
+              <ArrowLeft className="w-5 h-5" />
+              Back to Blogs
+            </Link>
           </div>
-          <h2 className="text-3xl font-primary font-bold text-secondary mb-4">
-            {error || 'Blog not found!'}
-          </h2>
-          <p className="text-muted-foreground mb-6 font-secondary">
-            The article you're looking for doesn't exist or has been removed.
-          </p>
-          <Link 
-            to="/blogs" 
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-secondary font-medium transition-all duration-300 hover:gap-3"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Back to Blogs
-          </Link>
         </div>
       </div>
     )

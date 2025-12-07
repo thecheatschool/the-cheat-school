@@ -124,9 +124,6 @@ Changes appear instantly on the live site (thanks to the CDN).
 **All set!** Your blog is now powered by a professional headless CMS. 🚀
 ```
 
-Just replace `YOUR_PROJECT_ID` and the example URLs with your actual values, and you're good to go! Let me know if you want a TypeScript version or any extra sections.
+Just replace `YOUR_PROJECT_ID` and the example URLs with your actual values, and you're good to go!
 
---- credentials
-appId: 'jb8r3ula3xts1e88yuh53uup',
-sanity.project-id=4x6wdy47
-VITE_SANITY_API_KEY=
+---

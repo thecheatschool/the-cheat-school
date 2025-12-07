@@ -1,17 +1,19 @@
-import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Layout from './Layout';
-import Events from './pages/EventsPage';
-import Gallery from './pages/GalleryPage'; 
-import ContactUs from './pages/ContactUsPage';
-import LandingPage from './pages/LandingPage';
-import BlogsPage from './pages/BlogsPage';
-import BlogDetailPage from './pages/BlogDetailPage';
-import NotFound from './not-found';
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./Layout";
+import Events from "./pages/EventsPage";
+import Gallery from "./pages/GalleryPage";
+import ContactUs from "./pages/ContactUsPage";
+import LandingPage from "./pages/LandingPage";
+import BlogsPage from "./pages/BlogsPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
+import NotFound from "./pages/not-found";
+import CivilEngineering from "./pages/CivilEngineering";
+import AiCourses from "./pages/AiEngineering";
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Layout />,
     children: [
       {
@@ -19,29 +21,39 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path: 'events',
+        path: "events",
         element: <Events />,
       },
       {
-        path: 'gallery',
+        path: "gallery",
         element: <Gallery />,
       },
       {
-        path: 'blogs',
+        path: "blogs",
         element: <BlogsPage />,
       },
       {
-        path: 'blogs/:slug',
+        path: "blogs/:slug",
         element: <BlogDetailPage />,
       },
       {
-        path: 'contact-us',
+        path: "contact-us",
         element: <ContactUs />,
+      },{
+        
+        path: "civil-engineering",
+        element: <CivilEngineering />,
       },
+      {
+        
+        path: "ai-engineering",
+        element: <AiCourses />,
+      },
+      
     ],
   },
   {
-    path: '*',
+    path: "*",
     element: <NotFound />,
   },
 ]);

@@ -1,25 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import toast, { Toaster } from 'react-hot-toast';
-import { Mail, Phone, Loader2, ExternalLink } from 'lucide-react';
+import { Mail, Phone, ExternalLink } from 'lucide-react';
 import { GOOGLE_FORM_URL } from '../utils/google-form-redirect';
-
-// Zod validation schema
-const contactSchema = z.object({
-  fullName: z.string().min(2, 'Full name must be at least 2 characters'),
-  email: z.string().email('Invalid email address'),
-  phoneNumber: z.string().regex(/^[0-9]{10}$/, 'Phone number must be 10 digits'),
-  college: z.string().min(2, 'College/University is required'),
-  yearOfStudy: z.string().min(1, 'Please select your year of study'),
-  branch: z.string().min(1, 'Please select your branch'),
-  hearAboutUs: z.string().min(1, 'Please tell us how you heard about us'),
-  hearAboutUsOther: z.string().optional(),
-});
+import { contactSchema, useSubmitContact } from '../services/useContactMutations'
+import Loader from '../components/global/Loader'
 
 const ContactUsPage = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { mutate, isLoading: isSubmitting } = useSubmitContact()
   
   const {
     register,
@@ -43,50 +32,29 @@ const ContactUsPage = () => {
 
   const hearAboutUsValue = watch('hearAboutUs');
 
-  const onSubmit = async (data) => {
-    setIsSubmitting(true);
-    
-    try {
-      const response = await fetch(`${import.meta.env.VITE_BACKEND_API}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-        signal: AbortSignal.timeout(120000), // 2 minute timeout for cold start
-      });
-
-      if (response.ok) {
-        toast.success('Message sent successfully! We\'ll get back to you soon.', {
+  const onSubmit = (data) => {
+    mutate(data, {
+      onSuccess: () => {
+        toast.success("Message sent successfully! We'll get back to you soon.", {
           duration: 5000,
           style: {
             background: '#10B981',
             color: '#fff',
             fontWeight: '600',
           },
-        });
-        reset();
-      } else {
-        const errorData = await response.json();
-        toast.error(errorData.message || 'Failed to send message. Please try again.', {
-          duration: 5000,
-        });
+        })
+        reset()
+      },
+      onError: (error) => {
+        if (error?.message?.toLowerCase?.().includes('timeout')) {
+          toast.error('Request timeout. Please try again or contact us directly.', { duration: 6000 })
+        } else {
+          toast.error(error?.message || 'Failed to send message. Please try again.', { duration: 5000 })
+        }
+        console.error('Contact form error:', error)
       }
-    } catch (error) {
-      if (error.name === 'AbortError') {
-        toast.error('Request timeout. Please try again or contact us directly.', {
-          duration: 6000,
-        });
-      } else {
-        toast.error('Network error. Please check your connection and try again.', {
-          duration: 5000,
-        });
-      }
-      console.error('Contact form error:', error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    })
+  }
 
   return (
     <>
@@ -262,7 +230,9 @@ const ContactUsPage = () => {
             >
               {isSubmitting ? (
                 <>
-                  <Loader2 className="animate-spin" size={20} />
+                  <div className="w-5">
+                    <Loader />
+                  </div>
                   Sending... (may take up to 60s)
                 </>
               ) : (

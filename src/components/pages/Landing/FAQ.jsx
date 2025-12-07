@@ -16,8 +16,8 @@ const Faq = () => {
 
   const items = [
     {
-      question: "What courses do you offer for civil engineering?",
-      answer: "We offer comprehensive courses covering structural engineering, geotechnical engineering, transportation, water resources, and construction management. All courses are designed by industry experts."
+      question: "What courses do you offer?",
+      answer: "We offer comprehensive courses across multiple disciplines including Civil Engineering, AI & Machine Learning, and more. All courses are designed by industry experts with hands-on projects."
     },
     {
       question: "How long is the free trial period?",
@@ -25,7 +25,7 @@ const Faq = () => {
     },
     {
       question: "Are the courses suitable for beginners?",
-      answer: "Yes! Our courses cater to all levels - from undergraduate students to practicing engineers looking to upskill. Each course clearly indicates its difficulty level."
+      answer: "Yes! Our courses cater to all levels - from undergraduate students to practicing professionals looking to upskill. Each course clearly indicates its difficulty level."
     },
     {
       question: "Do I get a certificate upon completion?",
@@ -80,4 +80,4 @@ const Faq = () => {
   )
 }
 
-export default Faq
+export default Faq;

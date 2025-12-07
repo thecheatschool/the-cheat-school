@@ -4,16 +4,6 @@ import { Check, ArrowRight } from 'lucide-react'
 const Pricing = () => {
   const plans = [
     {
-      name: 'Starter',
-      price: '199',
-      features: [
-        'Complete Documentation',
-        'Working materials in Sketch',
-        '500MB cloud storage',
-        'Life support'
-      ]
-    },
-    {
       name: 'PRO',
       price: '299',
       featured: true,
@@ -25,63 +15,62 @@ const Pricing = () => {
         'Premium support'
       ]
     },
-    {
-      name: 'Premium',
-      price: '399',
-      features: [
-        'Complete documentation',
-        'Working materials in Sketch',
-        '2GB cloud storage',
-        'Premium support'
-      ]
-    }
   ]
 
   return (
-    <section className="py-16 md:py-24 bg-[#0a0a0f] relative overflow-hidden">
-      {/* Background image effect */}
-      <div 
-        className="absolute inset-0 opacity-30"
-        style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      />
+    <section className="py-16 md:py-24 bg-slate-50 relative overflow-hidden">
+      {/* Diagonal Accent Background - Design 2 */}
+      <div className="absolute inset-0">
+        {/* Top right diagonal stripes */}
+        <div className="absolute top-0 right-0 w-64 h-64 overflow-hidden">
+          <div className="absolute inset-0" style={{
+            background: 'repeating-linear-gradient(-45deg, transparent, transparent 20px, rgba(232, 63, 37, 0.08) 20px, rgba(232, 63, 37, 0.08) 40px)'
+          }}></div>
+        </div>
+
+        {/* Bottom left solid block */}
+        <div className="absolute bottom-0 left-0 w-72 h-48 bg-gray-800/5"></div>
+        
+        {/* Red accent corner */}
+        <div className="absolute bottom-12 left-12 w-40 h-40 bg-red-500/8"></div>
+
+        {/* Floating squares */}
+        <div className="absolute top-1/4 left-1/3 w-6 h-6 border-2 border-red-500/40"></div>
+        <div className="absolute top-1/2 right-1/3 w-8 h-8 bg-red-500/20 rotate-12"></div>
+        <div className="absolute bottom-1/4 left-1/2 w-5 h-5 bg-gray-400/30"></div>
+      </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-block mb-4">
             <span 
-              className="bg-white text-[#0a0a0f] px-4 py-2 rounded-full text-sm font-medium"
+              className="bg-[#e83f25] text-white px-4 py-2 rounded-full text-sm font-medium"
               style={{ fontFamily: 'Inter, sans-serif' }}
             >
               Premium
             </span>
           </div>
           <h2 
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            className="text-4xl md:text-5xl font-bold text-[#2b2b2b] mb-4"
             style={{ fontFamily: 'Antonio, sans-serif' }}
           >
             See Our Pricing
           </h2>
           <p 
-            className="text-gray-300 text-lg"
+            className="text-gray-700 text-lg"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
             You have Free Unlimited Updates and Premium Support on each package
           </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {/* Pricing Cards - CENTERED */}
+        <div className="flex justify-center">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`bg-white rounded-2xl p-8 ${
-                plan.featured ? 'transform md:-translate-y-4' : ''
-              }`}
+              className="bg-white rounded-2xl p-8 max-w-sm w-full shadow-xl border border-gray-100"
             >
               {/* Plan Name */}
               <h3 
@@ -116,7 +105,7 @@ const Pricing = () => {
                     className="flex items-start gap-3"
                     style={{ fontFamily: 'Inter, sans-serif' }}
                   >
-                    <Check className="w-5 h-5 text-[#2b2b2b] flex-shrink-0 mt-0.5" />
+                    <Check className="w-5 h-5 text-[#e83f25] flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700">{feature}</span>
                   </li>
                 ))}
