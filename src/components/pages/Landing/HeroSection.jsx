@@ -105,9 +105,9 @@ const HeroSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-start md:justify-center px-4 py-6 md:py-0">
+      <div className="relative z-10 h-full flex flex-col items-center justify-start md:justify-center px-4 py-12 sm:py-16 md:py-20 lg:py-24">
         {/* Top Label */}
-        <div className="mt-6 md:mt-0">
+        <div className="mt-6 md:mt-28 lg:mt-32">
           <p className="text-foreground/70 text-sm md:text-base tracking-[0.3em] uppercase font-secondary">
             PROFESSIONAL EXCELLENCE
           </p>

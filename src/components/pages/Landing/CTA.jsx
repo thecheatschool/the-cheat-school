@@ -14,7 +14,7 @@ const CTA = () => {
                 </h2>
 
                 <p className="font-medium text-white/90 md:text-xl" style={{ fontFamily: 'Inter, sans-serif' }}>
-                  Start your learning journey today with our expert-led courses. 7-day free trial, no credit card required.
+                  Start your journey from student to industry professional in just 90 days. Limited seats available for next batch.
                 </p>
 
                 <div className="pt-2">

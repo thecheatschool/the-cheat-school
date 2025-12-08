@@ -4,15 +4,18 @@ import { Check, ArrowRight } from 'lucide-react'
 const Pricing = () => {
   const plans = [
     {
-      name: 'PRO',
-      price: '299',
+      name: 'One-Time Offer',
+      price: '20,000',
       featured: true,
       features: [
-        'Complete documentation',
-        'Working materials in Sketch',
-        '100GB cloud storage',
-        '500 team members',
-        'Premium support'
+        '90-Day Civil Cheatcamp Access',
+        'Live Coaching: 12 Sessions',
+        'AutoCAD & Revit Mastery',
+        'Project Management Training',
+        'Personality Development Program',
+        'Real Internship Experience',
+        'Complete Professional Portfolio',
+        'Industry-Recognized Certification'
       ]
     },
   ]
@@ -55,13 +58,13 @@ const Pricing = () => {
             className="text-4xl md:text-5xl font-bold text-[#2b2b2b] mb-4"
             style={{ fontFamily: 'Antonio, sans-serif' }}
           >
-            See Our Pricing
+            Civil Cheatcamp Investment
           </h2>
           <p 
             className="text-gray-700 text-lg"
             style={{ fontFamily: 'Inter, sans-serif' }}
           >
-            You have Free Unlimited Updates and Premium Support on each package
+            One-time investment to transform into an industry-ready Civil Engineer in 90 days
           </p>
         </div>
 
@@ -86,7 +89,7 @@ const Pricing = () => {
                   className="text-5xl md:text-6xl font-bold text-[#2b2b2b]"
                   style={{ fontFamily: 'Antonio, sans-serif' }}
                 >
-                  <span className="text-3xl align-top">$</span>
+                  <span className="text-2xl align-top">₹</span>
                   {plan.price}
                 </span>
                 <span 

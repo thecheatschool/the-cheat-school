@@ -34,10 +34,10 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
     <div className="top-0 left-0 z-50 m-2 fixed w-[calc(100%-16px)] shadow-xl dark:bg-white/2 bg-white/30 backdrop-blur-lg rounded-xl">
       <div className="container p-0.5">
         <div className="flex items-center justify-between">
-          <img src={logo} alt="logo" className="object-contain h-[80px]" />
+          <img src={logo} alt="logo" className="object-contain h-[80px] ml-4" />
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-10">
+          <div className="hidden md:flex items-center space-x-10 mr-6">
             <ul className="flex flex-row font-bold text-2xl space-x-10 font-primary cursor-pointer">
 
               {/* 1. ABOUT US */}
@@ -165,7 +165,7 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
                         } block w-full text-center text-lg font-semibold`
                       }
                     >
-                      ABOUT US
+                      HOME
                     </NavLink>
                   </motion.li>
 
