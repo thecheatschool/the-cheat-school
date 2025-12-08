@@ -50,7 +50,7 @@ const AboutUs = () => {
               className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 text-gray-900"
               style={{ fontFamily: "Antonio, sans-serif" }}
             >
-              2 Hrs/Day
+              2-4 Hrs/Day
             </div>
             <div
               className="text-xs sm:text-sm text-gray-600"

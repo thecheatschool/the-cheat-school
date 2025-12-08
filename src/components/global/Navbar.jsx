@@ -94,7 +94,7 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
 
               {/* 3. Remaining nav items */}
               {navItems.slice(1).map((item) => (
-                <li key={item.to}>
+                <li key={item.to}>  
                   <NavLink
                     className={({ isActive }) =>
                       isActive ? activeClassName : inactiveClassName
@@ -106,7 +106,7 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
                 </li>
               ))}
             </ul>
-            {/* <ThemeToggle /> */}
+            {/*<ThemeToggle />*/}
           </div>
 
           {/* Mobile Header Section */}
@@ -118,7 +118,7 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
             >
               <Bot className="w-5 h-5 text-gray-700 dark:text-gray-300" />
             </button>
-            {/* <ThemeToggle /> */}
+            {/*<ThemeToggle />*/} 
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>
         </div>

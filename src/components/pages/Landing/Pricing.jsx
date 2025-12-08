@@ -5,7 +5,7 @@ const Pricing = () => {
   const plans = [
     {
       name: 'One-Time Offer',
-      price: '20,000',
+      price: '18,000',
       featured: true,
       features: [
         '90-Day Civil Cheatcamp Access',
@@ -96,7 +96,7 @@ const Pricing = () => {
                   className="text-xl text-gray-600"
                   style={{ fontFamily: 'Inter, sans-serif' }}
                 >
-                  /mo
+                  /3 mo
                 </span>
               </div>
 
