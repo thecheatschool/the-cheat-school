@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import logo from "../../../public/the-cheat-school.png";
+import logo from "../../../public/the-cheat-school-2.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import Hamburger from "hamburger-react";
 import { motion, AnimatePresence } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
-import { Bot, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { Bot, ChevronDown, ChevronUp } from "lucide-react";
 
 const Navbar = ({ isChatOpen, setIsChatOpen }) => {
   const [isOpen, setOpen] = useState(false);
@@ -14,7 +13,7 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
   const navigate = useNavigate();
 
   const navItems = [
-    { to: "/", label: "ABOUT US" },
+    { to: "/", label: "HOME" },
     { to: "blogs", label: "BLOGS" },
     { to: "events", label: "EVENTS" },
     { to: "/contact-us", label: "CONTACT US" },
@@ -49,7 +48,7 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
                   }
                   to="/"
                 >
-                  ABOUT US
+                 HOME
                 </NavLink>
               </li>
 
@@ -107,7 +106,7 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
                 </li>
               ))}
             </ul>
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </div>
 
           {/* Mobile Header Section */}
@@ -119,7 +118,7 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
             >
               <Bot className="w-5 h-5 text-gray-700 dark:text-gray-300" />
             </button>
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>
         </div>

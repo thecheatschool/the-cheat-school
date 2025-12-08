@@ -142,21 +142,12 @@ const HeroSection = () => {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-16">
+        <div className="flex sm:flex-row gap-4 mb-16">
           <a href={GOOGLE_FORM_URL}>
-            <button className="px-8 py-4 bg-[#e83f25] cursor-pointer text-white font-semibold font-secondary rounded-lg hover:bg-[#d63820] transition-all duration-300 shadow-lg hover:shadow-xl">
-              Start Learning
+            <button className="px-8 py-4 bg-[#e83f25] cursor-pointer text-white font-semibold font-secondary rounded-lg hover:bg-[#d63820] transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
+              Enroll & Start Today <ArrowRight className="inline-block" />
             </button>
           </a>
-
-          <div className="flex">
-            <a href="">
-              <button className="px-8 py-4 bg-accent-foreground cursor-pointer text-white font-semibold font-secondary rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2">
-                Join Us
-                <ArrowRight />
-              </button>
-            </a>
-          </div>
         </div>
 
         {/* Stats */}

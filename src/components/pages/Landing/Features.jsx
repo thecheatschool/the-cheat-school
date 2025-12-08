@@ -21,9 +21,9 @@ const Features = () => {
       description:
         "Learn Machine Learning, AI tools, and intelligent systems. Build real-world AI projects and deploy production models.",
       icon: Cpu,
-      link: "#waitlist",
+      link: "/ai-engineering",
       bgColor: "#2b2b2b",
-      cta: "Join Waitlist"
+      cta: "Coming Soon"
     },
   ];
 

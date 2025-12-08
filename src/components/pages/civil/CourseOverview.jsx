@@ -11,6 +11,7 @@ import {
   FileText,
   Award,
 } from "lucide-react";
+import { GOOGLE_FORM_URL } from "@/utils/google-form-redirect";
 
 const CourseOverview = () => {
   const [activeFeature, setActiveFeature] = useState(0);
@@ -87,11 +88,12 @@ const CourseOverview = () => {
                 <p className="text-muted-foreground font-secondary">
                   Starting Soon
                 </p>
-                <button className="w-full bg-primary text-white py-4 rounded-xl font-primary font-bold hover:bg-[#d63620] transition-colors duration-300 flex items-center justify-center gap-2 group">
-                  <Play className="w-5 h-5" />
-                  Join Waitlist
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </button>
+                <a href={`${GOOGLE_FORM_URL}`}>
+                  <button className="w-full cursor-pointer bg-primary text-white py-4 rounded-xl font-primary font-bold hover:bg-[#d63620] transition-colors duration-300 flex items-center justify-center gap-2 group">
+                    Join the Course Now
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </a>
               </div>
             </div>
           </div>

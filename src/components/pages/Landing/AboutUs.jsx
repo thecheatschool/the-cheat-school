@@ -164,7 +164,6 @@ const AboutUs = () => {
                   Graduate with a complete professional portfolio, project deliverables, and industry certifications.
                 </p>
               </div>
-
             </div>
           </div>
         </div>

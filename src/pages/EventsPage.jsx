@@ -1,47 +1,51 @@
-import React from 'react'
-import { urlFor } from '../services/api'
-import { useGetAllEvents } from '../services/useEventsQueries'
-import { ExternalLink, Calendar, Clock, Monitor, Users } from 'lucide-react'
-import Loader from '../components/global/Loader'
-import ErrorDisplay from '../components/global/ErrorDisplay'
+import React, { useState } from "react";
+import { urlFor } from "../services/api";
+import { useGetAllEvents } from "../services/useEventsQueries";
+import { ExternalLink, Calendar, Clock, Monitor, Users } from "lucide-react";
+import Loader from "../components/global/Loader";
+import ErrorDisplay from "../components/global/ErrorDisplay";
 
 const EventsPage = () => {
-  const { data: events = [], isLoading, isError, error } = useGetAllEvents()
+  const { data: events = [], isLoading, isError, error } = useGetAllEvents();
 
   const handleJoinEvent = (event) => {
     if (event.registrationLink) {
       // If registration link exists, open it
-      window.open(event.registrationLink, '_blank')
-    } else if (event.location && event.mode === 'offline') {
+      window.open(event.registrationLink, "_blank");
+    } else if (event.location && event.mode === "offline") {
       // If offline event with location, open Google Maps
-      const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.location)}`
-      window.open(mapsUrl, '_blank')
-    } else if (event.location && event.mode === 'online') {
+      const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+        event.location
+      )}`;
+      window.open(mapsUrl, "_blank");
+    } else if (event.location && event.mode === "online") {
       // If online event with meeting link, open it
-      window.open(event.location, '_blank')
+      window.open(event.location, "_blank");
     } else {
       // Fallback: show alert
-      alert('Registration details not available yet!')
+      alert("Registration details not available yet!");
     }
-  }
+  };
 
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <Loader />
       </div>
-    )
+    );
   }
 
   if (isError) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <ErrorDisplay 
-          heading="Failed to load events" 
-          message={error?.message || 'Unable to fetch events. Please try again later.'}
+        <ErrorDisplay
+          heading="Failed to load events"
+          message={
+            error?.message || "Unable to fetch events. Please try again later."
+          }
         />
       </div>
-    )
+    );
   }
 
   return (
@@ -63,7 +67,6 @@ const EventsPage = () => {
               className="p-2 mb-4 flex items-center justify-center bg-transparent"
             >
               <div className="max-w-3xl group border border-black/20 dark:border-white/30 rounded-3xl dark:bg-black duration-300 hover:shadow-[0_12px_30px_rgba(0,0,0,0.45)] hover:dark:shadow-[0_12px_30px_rgba(255,255,255,0.12)] transition-transform hover:-translate-y-0.5 w-full">
-
                 <div className="relative overflow-hidden rounded-t-3xl">
                   {event.eventImage ? (
                     <img
@@ -94,8 +97,15 @@ const EventsPage = () => {
                       </p>
                       <div>
                         <ul>
-                          {(event.guestSpeakers && event.guestSpeakers.length > 0 ? event.guestSpeakers : []).map((sp, idx) => (
-                            <li className="font-secondary font-semibold text-sm" key={idx}>
+                          {(event.guestSpeakers &&
+                          event.guestSpeakers.length > 0
+                            ? event.guestSpeakers
+                            : []
+                          ).map((sp, idx) => (
+                            <li
+                              className="font-secondary font-semibold text-sm"
+                              key={idx}
+                            >
                               {sp.name || sp}
                             </li>
                           ))}
@@ -109,7 +119,13 @@ const EventsPage = () => {
                         Date
                       </p>
                       <p className="mt-1 dark:text-white text-base font-semibold">
-                        {event.date ? new Date(event.date).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }) : 'TBA'}
+                        {event.date
+                          ? new Date(event.date).toLocaleDateString("en-US", {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                            })
+                          : "TBA"}
                       </p>
                     </div>
                   </div>
@@ -121,7 +137,13 @@ const EventsPage = () => {
                         <Monitor className="w-4 h-4" />
                         Event Mode
                       </p>
-                      <p className="mt-1 dark:text-white text-base font-semibold">{event.mode ? (event.mode === 'online' ? 'Online' : 'Offline') : 'TBA'}</p>
+                      <p className="mt-1 dark:text-white text-base font-semibold">
+                        {event.mode
+                          ? event.mode === "online"
+                            ? "Online"
+                            : "Offline"
+                          : "TBA"}
+                      </p>
                     </div>
 
                     <div>
@@ -129,18 +151,22 @@ const EventsPage = () => {
                         <Clock className="w-4 h-4" />
                         Time
                       </p>
-                      <p className="mt-1 dark:text-white text-base font-semibold">{event.time || 'TBA'}</p>
+                      <p className="mt-1 dark:text-white text-base font-semibold">
+                        {event.time || "TBA"}
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 {/* Button */}
-                <div className="mt-4 mb-4 flex justify-center">
-                  <button onClick={() => handleJoinEvent(event)} className="px-8 py-2 font-primary rounded-md bg-primary hover:bg-red-500 duration-200 transition-transform text-white text-lg font-medium tracking-wide shadow-[0_8px_20px_rgba(0,0,0,0.25)] ">
-                    View Event <span className="ml-2">→</span>
+                <div className="mt-4 cursor-pointer mb-4 flex justify-center">
+                  <button
+                    onClick={() => handleJoinEvent(event)}
+                    className="px-8 py-2 cursor-pointer font-primary rounded-md bg-primary  duration-200 transition-transform text-white text-lg font-medium tracking-wide shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
+                  >
+                    {event.mode === "online" ? "Watch Live" : "View Venue"}
                   </button>
                 </div>
-
               </div>
             </article>
           ))}
@@ -156,7 +182,7 @@ const EventsPage = () => {
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default EventsPage
+export default EventsPage;

@@ -261,7 +261,7 @@ const RequirementsGameMap = () => {
             {/* Card 1 - Mobile */}
             <button
               onClick={() => openModal('social')}
-              className="group relative w-full bg-card rounded-2xl overflow-hidden border-4 border-primary shadow-xl active:scale-95 transition-all duration-200"
+              className="group cursor-pointer relative w-full bg-card rounded-2xl overflow-hidden border-4 border-primary shadow-xl active:scale-95 transition-all duration-200"
             >
               <div className="bg-primary h-2 w-full"></div>
               <div className="p-5">
@@ -306,7 +306,7 @@ const RequirementsGameMap = () => {
             {/* Card 2 - Mobile */}
             <button
               onClick={() => openModal('internship')}
-              className="group relative w-full bg-card rounded-2xl overflow-hidden border-4 border-secondary shadow-xl active:scale-95 transition-all duration-200"
+              className="group cursor-pointer relative w-full bg-card rounded-2xl overflow-hidden border-4 border-secondary shadow-xl active:scale-95 transition-all duration-200"
             >
               <div className="bg-secondary h-2 w-full"></div>
               <div className="p-5">
@@ -352,7 +352,7 @@ const RequirementsGameMap = () => {
             {/* Card 3 - Mobile */}
             <button
               onClick={() => openModal('certification')}
-              className="group relative w-full bg-gradient-to-br from-primary via-primary to-primary/80 rounded-2xl overflow-hidden border-4 border-primary shadow-xl active:scale-95 transition-all duration-200"
+              className="group cursor-pointer relative w-full bg-gradient-to-br from-primary via-primary to-primary/80 rounded-2xl overflow-hidden border-4 border-primary shadow-xl active:scale-95 transition-all duration-200"
             >
               <div className="relative p-6 text-white">
                 <h3 className="text-2xl font-bold font-[Antonio] mb-2 text-center">
@@ -397,7 +397,7 @@ const RequirementsGameMap = () => {
           <div className="relative bg-background rounded-2xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto border-2 border-primary">
             <button
               onClick={closeModal}
-              className="sticky top-4 right-4 float-right z-10 bg-primary text-white rounded-full p-2 hover:scale-110 transition-transform shadow-lg"
+              className="sticky top-4 right-4 float-right z-10 cursor-pointer bg-primary text-white rounded-full p-2 transition-transform shadow-lg"
               aria-label="Close modal"
             >
               <X className="w-6 h-6" />
