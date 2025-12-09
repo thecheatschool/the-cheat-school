@@ -160,7 +160,7 @@ const EventsPage = () => {
 
                 {/* Button */}
                 <div className="mt-4 cursor-pointer mb-4 flex justify-center">
-                  <button
+                    <button
                     onClick={() => handleJoinEvent(event)}
                     className="px-8 py-2 cursor-pointer font-primary rounded-md bg-primary  duration-200 transition-transform text-white text-lg font-medium tracking-wide shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
                   >

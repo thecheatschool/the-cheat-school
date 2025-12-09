@@ -6,8 +6,8 @@ import imageUrlBuilder from '@sanity/image-url'
 export const USE_BACKEND = import.meta.env.VITE_USE_BACKEND || 'springboot'
 export const API_BASE_URL = import.meta.env.VITE_BACKEND_API || 'http://localhost:8080'
 
-console.log('🔧 Backend Mode:', USE_BACKEND)
-console.log('🌐 API URL:', API_BASE_URL)
+//console.log(' Backend Mode:', USE_BACKEND)
+//console.log(' API URL:', API_BASE_URL)
 
 export const sanityClient = createClient({
   projectId: '4x6wdy47',
