@@ -95,7 +95,7 @@ const SkillsMastered = () => {
           {skills.map((category, index) => (
             <div
               key={index}
-              className="bg-card border border-border rounded-xl p-6"
+              className="bg-card border border-border hover:border-primary duration-300 rounded-xl p-6"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-[#e83f25] rounded-lg">

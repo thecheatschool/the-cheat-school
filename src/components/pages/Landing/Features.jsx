@@ -102,24 +102,7 @@ const Features = () => {
           })}
         </div>
 
-        {/* CTA Buttons */}
-        <div className="text-center mt-16 flex flex-col sm:flex-row gap-4 justify-center items-center">
-          
-           <a href="/The Cheatcamp – Student Schedule & Responsibilities.pdf"
-            download
-            className="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-[#d63620] transition-all text-lg font-primary shadow-lg hover:shadow-xl"
-          >
-            Download Complete Syllabus
-          </a>
 
-          
-           <a href="/90 Days TCS Bootcamp.pdf"
-            download
-            className="px-8 py-4 bg-transparent border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all text-lg font-primary"
-          >
-            View Detailed Schedule
-          </a>
-        </div>
       </div>
     </section>
   );

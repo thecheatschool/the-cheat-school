@@ -5,44 +5,7 @@ const ScheduleTabs = () => {
   const [activeTab, setActiveTab] = useState("daily");
   const [expandedIndex, setExpandedIndex] = useState(null);
 
-  const dailySchedule = [
-    {
-      time: "9 AM - 10 AM",
-      activity: "Quick Review & Class Prep",
-      icon: BookOpen,
-      category: { tag: "Morning Prep", bgColor: "#e83f25", color: "#ffffff" },
-      short: "Review previous content and prepare for today's session",
-      details: "Go through yesterday's notes, review AutoCAD/Revit concepts, prepare questions for class. Set daily learning goals and organize materials for the session.",
-      deliverables: "AutoCAD, Revit, PM, BOQ, AI mini-week prep",
-    },
-    {
-      time: "2 PM - 4 PM",
-      activity: "Class / Practical Lab",
-      icon: Clock,
-      category: { tag: "Active Learning", bgColor: "#2b2b2b", color: "#ffffff" },
-      short: "Structured learning with practical applications",
-      details: "Attend instructor-led sessions, follow along with demonstrations, complete hands-on exercises. Practice with industry-standard tools and get real-time feedback.",
-      deliverables: "Hands-on training with industry tools",
-    },
-    {
-      time: "4 PM - 5 PM",
-      activity: "Daily Reflection Video",
-      icon: Video,
-      category: { tag: "Reflection", bgColor: "#f5f5f5", color: "#2b2b2b" },
-      short: "Create 1-minute video explaining today's learning",
-      details: "Record a brief video summarizing what you learned, challenges faced, and key takeaways. Practice articulating technical concepts in simple terms.",
-      deliverables: "Upload by 10 PM daily",
-    },
-    {
-      time: "5 PM - 6 PM",
-      activity: "Optional Practice / Assignment",
-      icon: BookOpen,
-      category: { tag: "Practice", bgColor: "#e83f25", color: "#ffffff" },
-      short: "Refine drawings, schedules, or BOQ assignments",
-      details: "Work on assigned projects, practice commands, refine your work quality. Complete mini-project tasks and prepare submissions for review.",
-      deliverables: "Complete assigned mini-project tasks",
-    },
-  ];
+ 
 
   const weeklySchedule = [
     {
@@ -157,91 +120,6 @@ const ScheduleTabs = () => {
     setExpandedIndex(expandedIndex === index ? null : index);
   };
 
-  const renderDaily = () => (
-    <div className="relative my-10 flex flex-col after:absolute after:left-[20px] after:h-full after:w-1 after:bg-border after:content-['']">
-      {dailySchedule.map((data, idx) => {
-        const isExpanded = expandedIndex === idx;
-
-        return (
-          <div
-            key={idx}
-            className="group relative my-[10px] flex w-full pl-[50px]"
-          >
-            <div
-              className="relative flex w-full flex-col rounded-xl bg-card border border-border p-6 shadow-sm hover:shadow-md transition-all items-start text-left after:absolute after:top-[calc(50%-7.5px)] after:left-[-7.5px] after:shadow-[-1px_1px_1px_rgba(0,0,0,0.1)] after:h-4 after:w-4 after:rotate-45 after:bg-card after:border-l after:border-t after:border-border after:content-['']"
-            >
-              <span
-                className="absolute top-4 px-3 py-1.5 text-xs font-bold tracking-wider uppercase rounded-md left-4"
-                style={{
-                  backgroundColor: data.category.bgColor,
-                  color: data.category.color,
-                }}
-              >
-                {data.category.tag}
-              </span>
-
-              <time
-                className="mt-12 text-sm font-semibold text-[#e83f25] self-start font-[Oswald]"
-              >
-                {data.time}
-              </time>
-
-              <h3
-                className="my-3 text-xl font-bold text-left font-[Antonio]"
-              >
-                {data.activity}
-              </h3>
-
-              <p
-                className="mb-3 text-sm text-muted-foreground leading-relaxed text-left font-[Inter]"
-              >
-                {data.short}
-              </p>
-
-              {isExpanded && (
-                <>
-                  <p
-                    className="mb-3 text-sm text-muted-foreground leading-relaxed text-left font-[Inter]"
-                  >
-                    {data.details}
-                  </p>
-                  <div
-                    className="mb-4 bg-muted rounded-lg p-4 border border-border/50 w-full"
-                  >
-                    <p className="text-xs font-semibold text-[#e83f25] uppercase tracking-wide mb-1">
-                      Deliverable
-                    </p>
-                    <p className="text-sm text-foreground font-[Inter]">
-                      {data.deliverables}
-                    </p>
-                  </div>
-                </>
-              )}
-
-              <button
-                onClick={() => toggleExpand(idx)}
-                className="flex items-center gap-2 text-sm font-medium text-[#e83f25] hover:text-[#d63620] transition-colors self-start font-[Inter]"
-              >
-                {isExpanded ? (
-                  <>
-                    Show Less <ChevronUp className="w-4 h-4" />
-                  </>
-                ) : (
-                  <>
-                    Learn More <ChevronDown className="w-4 h-4" />
-                  </>
-                )}
-              </button>
-
-              <span
-                className="absolute top-[calc(50%-10px)] z-10 h-5 w-5 rounded-full border-4 border-[#e83f25] bg-background -left-[42px]"
-              />
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
 
   const renderWeekly = () => (
     <div className="relative my-10 flex flex-col after:absolute after:left-[20px] after:h-full after:w-1 after:bg-border after:content-['']">
@@ -430,19 +308,7 @@ const ScheduleTabs = () => {
         </div>
 
         <div className="flex justify-center gap-4 mb-12 flex-wrap">
-          <button
-            onClick={() => {
-              setActiveTab("daily");
-              setExpandedIndex(null);
-            }}
-            className={`px-6 py-3 rounded-lg font-semibold transition-all font-[Antonio] ${
-              activeTab === "daily"
-                ? "bg-[#e83f25] text-white"
-                : "bg-card border border-border text-foreground hover:border-[#e83f25]"
-            }`}
-          >
-            Daily Schedule
-          </button>
+          
           <button
             onClick={() => {
               setActiveTab("weekly");
@@ -471,28 +337,10 @@ const ScheduleTabs = () => {
           </button>
         </div>
 
-        {activeTab === "daily" && renderDaily()}
         {activeTab === "weekly" && renderWeekly()}
         {activeTab === "monthly" && renderMonthly()}
 
-         {/* CTA Buttons */}
-        <div className="text-center mt-16 flex flex-col sm:flex-row gap-4 justify-center items-center">
-          
-           <a href="/The Cheatcamp – Student Schedule & Responsibilities.pdf"
-            download
-            className="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-[#d63620] transition-all text-lg font-primary shadow-lg hover:shadow-xl"
-          >
-            Download Complete Syllabus
-          </a>
-
-          
-           <a href="/90 Days TCS Bootcamp.pdf"
-            download
-            className="px-8 py-4 bg-transparent border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all text-lg font-primary"
-          >
-            View Detailed Schedule
-          </a>
-        </div>
+       
       </div>
     </section>
   );
