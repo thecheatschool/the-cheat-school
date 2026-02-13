@@ -1,18 +1,56 @@
 import { motion } from "framer-motion";
 import { Mail, Zap, Sparkles, ArrowRight } from "lucide-react";
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import Loader from "./Loader";
+import { notifyMeSchema, useSubmitNotifyMe } from "../../services/useNotifyMeMutations";
 
 export default function ComingSoon() {
-  const [email, setEmail] = useState("");
+  const { mutate, isLoading: isSubmitting } = useSubmitNotifyMe();
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      setEmail("");
-      setTimeout(() => setSubmitted(false), 3000);
-    }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    resolver: zodResolver(notifyMeSchema),
+    defaultValues: {
+      name: "",
+      email: "",
+      phoneNumber: "",
+    },
+  });
+
+  const onSubmit = (data) => {
+    mutate(data, {
+      onSuccess: () => {
+        setSubmitted(true);
+        toast.success("Thanks! We'll notify you when new courses launch.", {
+          duration: 5000,
+          style: {
+            background: "#10B981",
+            color: "#fff",
+            fontWeight: "600",
+          },
+        });
+        reset();
+        setTimeout(() => setSubmitted(false), 3000);
+      },
+      onError: (error) => {
+        if (error?.message?.toLowerCase?.().includes("timeout")) {
+          toast.error("Request timeout. Please try again.", { duration: 6000 });
+        } else {
+          toast.error(error?.message || "Failed to submit. Please try again.", {
+            duration: 5000,
+          });
+        }
+        console.error("Notify-me error:", error);
+      },
+    });
   };
 
   const containerVariants = {
@@ -70,6 +108,7 @@ export default function ComingSoon() {
 
   return (
     <div className="min-h-screen mt-20 w-full overflow-hidden bg-background text-foreground relative">
+      <Toaster position="top-right" />
       <div className="fixed inset-0 pointer-events-none z-0">
         {/* Top left floating circle */}
         <motion.div
@@ -156,30 +195,66 @@ export default function ComingSoon() {
         {/* Email form with enhanced styling */}
         <motion.form
           variants={itemVariants}
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           className="w-full max-w-md mb-16"
         >
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-primary/10 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-300" />
-            <div className="relative flex flex-col sm:flex-row gap-3 bg-background p-1 rounded-lg">
+            <div className="relative flex flex-col gap-3 bg-background p-1 rounded-lg">
+              <div className="flex-1 relative">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full px-4 py-4 bg-light-grey dark:bg-dark-grey text-foreground placeholder:text-muted-foreground rounded-md border-0 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 font-secondary"
+                  {...register("name")}
+                  disabled={isSubmitting}
+                  required
+                />
+                {errors?.name && (
+                  <p className="mt-1 text-xs text-red-500 font-secondary">{errors.name.message}</p>
+                )}
+              </div>
+
               <div className="flex-1 relative">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-primary pointer-events-none" />
                 <input
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="your@email.com"
                   className="w-full pl-12 pr-4 py-4 bg-light-grey dark:bg-dark-grey text-foreground placeholder:text-muted-foreground rounded-md border-0 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 font-secondary"
+                  {...register("email")}
+                  disabled={isSubmitting}
                   required
                 />
+                {errors?.email && (
+                  <p className="mt-1 text-xs text-red-500 font-secondary">{errors.email.message}</p>
+                )}
               </div>
+
+              <div className="flex-1 relative">
+                <input
+                  type="tel"
+                  inputMode="numeric"
+                  placeholder="Phone Number (10 digits)"
+                  className="w-full px-4 py-4 bg-light-grey dark:bg-dark-grey text-foreground placeholder:text-muted-foreground rounded-md border-0 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300 font-secondary"
+                  {...register("phoneNumber")}
+                  disabled={isSubmitting}
+                  required
+                />
+                {errors?.phoneNumber && (
+                  <p className="mt-1 text-xs text-red-500 font-secondary">{errors.phoneNumber.message}</p>
+                )}
+              </div>
+
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-8 py-4 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-md transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap font-secondary shadow-lg hover:shadow-xl"
+                disabled={isSubmitting}
+                className="px-8 py-4 bg-primary hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed text-primary-foreground font-bold rounded-md transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap font-secondary shadow-lg hover:shadow-xl"
               >
-                {submitted ? (
+                {isSubmitting ? (
+                  <Loader />
+                ) : submitted ? (
                   <motion.span
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
