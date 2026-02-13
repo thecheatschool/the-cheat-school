@@ -4,7 +4,7 @@ import { API_BASE_URL, sanityClient, USE_BACKEND } from './api';
 
 export const getAllEvents = async () => {
   if (USE_BACKEND === 'sanity') {
-    console.log('📡 Fetching all events from SANITY DIRECT API')
+    // console.log('📡 Fetching all events from SANITY DIRECT API')
     const query = `*[_type == "event"] | order(date desc) {
       _id,
       title,
@@ -23,7 +23,7 @@ export const getAllEvents = async () => {
       registrationLink
     }`
     const data = await sanityClient.fetch(query)
-    console.log('✅ Sanity returned:', data.length, 'events')
+    // console.log('✅ Sanity returned:', data.length, 'events')
     return data
   } else {
     console.log('📡 Fetching all events from SPRING BOOT API:', `${API_BASE_URL}/api/events`)

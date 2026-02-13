@@ -14,7 +14,7 @@ const Layout = () => {
         <Outlet /> 
       </main>
       <Footer />
-      <AIChatbot isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
+      {/* <AIChatbot isOpen={isChatOpen} setIsOpen={setIsChatOpen} /> */}
     </div>
   );
 };

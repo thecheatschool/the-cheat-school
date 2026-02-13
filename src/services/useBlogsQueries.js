@@ -4,7 +4,7 @@ import { API_BASE_URL, sanityClient, USE_BACKEND } from './api';
 
 const getAllBlogs = async () => {
   if (USE_BACKEND === 'sanity') {
-    console.log('📡 Fetching all blogs from SANITY DIRECT API')
+    // console.log('📡 Fetching all blogs from SANITY DIRECT API')
     const query = `*[_type == "post"] | order(publishedAt desc) {
       _id,
       title,
@@ -15,7 +15,7 @@ const getAllBlogs = async () => {
       body
     }`
     const data = await sanityClient.fetch(query)
-    console.log('✅ Sanity returned:', data.length, 'blogs')
+    // console.log('✅ Sanity returned:', data.length, 'blogs')
     return data
   } else {
     console.log('📡 Fetching all blogs from SPRING BOOT API:', `${API_BASE_URL}/api/blogs`)

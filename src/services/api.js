@@ -21,7 +21,7 @@ export const builder = imageUrlBuilder(sanityClient)
 //image builder
 export const urlFor = (source) => {
   if (USE_BACKEND === 'sanity') {
-    console.log('🖼️ Building image URL using SANITY image builder')
+    // console.log('🖼️ Building image URL using SANITY image builder')
     return builder.image(source).url()
   } else {
     console.log('🖼️ Building image URL from SPRING BOOT data')

@@ -111,13 +111,13 @@ const Navbar = ({ isChatOpen, setIsChatOpen }) => {
 
           {/* Mobile Header Section */}
           <div className="flex items-center space-x-4 md:hidden">
-            <button
+            {/* <button
               onClick={() => setIsChatOpen(!isChatOpen)}
               className="p-2 rounded-lg transition-colors mr-2 duration-300 hover:bg-gray-300 dark:hover:bg-gray-600"
               aria-label="Open AI Assistant"
             >
               <Bot className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-            </button>
+            </button> */}
             {/*<ThemeToggle />*/} 
             <Hamburger toggled={isOpen} toggle={setOpen} />
           </div>
