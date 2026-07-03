@@ -21,24 +21,24 @@ const Loader = () => {
           }
         `}
       </style>
-      <div 
+      <div
         className="loader-circle w-3.5 h-3.5 rounded-full mx-1"
-        style={{ backgroundColor: '#007aff', animationDelay: '0s' }}
-      />
-      <div 
+        style={{ backgroundColor: '#007aff', animationDelay: '0s' }} />
+      
+      <div
         className="loader-circle w-3.5 h-3.5 rounded-full mx-1"
-        style={{ backgroundColor: '#ff2d55', animationDelay: '0.25s' }}
-      />
-      <div 
+        style={{ backgroundColor: '#ff2d55', animationDelay: '0.25s' }} />
+      
+      <div
         className="loader-circle w-3.5 h-3.5 rounded-full mx-1"
-        style={{ backgroundColor: '#34c759', animationDelay: '0.5s' }}
-      />
-      <div 
+        style={{ backgroundColor: '#34c759', animationDelay: '0.5s' }} />
+      
+      <div
         className="loader-circle w-3.5 h-3.5 rounded-full mx-1"
-        style={{ backgroundColor: '#ff9500', animationDelay: '0.75s' }}
-      />
-    </div>
-  );
+        style={{ backgroundColor: '#ff9500', animationDelay: '0.75s' }} />
+      
+    </div>);
+
 };
 
 export default Loader;

@@ -9,48 +9,48 @@ import {
   Video,
   TrendingUp,
   FileText,
-  Award,
-} from "lucide-react";
+  Award } from
+"lucide-react";
 import { GOOGLE_FORM_URL } from "@/utils/google-form-redirect";
 
 const CourseOverview = () => {
   const [activeFeature, setActiveFeature] = useState(0);
 
   const features = [
-    {
-      icon: Calendar,
-      number: "90",
-      unit: "DAYS",
-      title: "Intensive Program",
-      description: "Sunday-Thursday structured learning path",
-      gradient: "from-primary to-red-600",
-    },
-    {
-      icon: Clock,
-      number: "2-4",
-      unit: "PM",
-      title: "Daily Classes",
-      description: "Live sessions with industry experts",
-      gradient: "from-secondary to-gray-800",
-    },
-    {
-      icon: Target,
-      number: "3",
-      unit: "DELIVERABLES",
-      title: "Real Projects",
-      description: "Videos, Social Media, Internship portfolio",
-      gradient: "from-primary to-orange-600",
-    },
-  ];
+  {
+    icon: Calendar,
+    number: "90",
+    unit: "DAYS",
+    title: "Intensive Program",
+    description: "Sunday-Thursday structured learning path",
+    gradient: "from-primary to-red-600"
+  },
+  {
+    icon: Clock,
+    number: "2-4",
+    unit: "PM",
+    title: "Daily Classes",
+    description: "Live sessions with industry experts",
+    gradient: "from-secondary to-gray-800"
+  },
+  {
+    icon: Target,
+    number: "3",
+    unit: "DELIVERABLES",
+    title: "Real Projects",
+    description: "Videos, Social Media, Internship portfolio",
+    gradient: "from-primary to-orange-600"
+  }];
+
 
   return (
     <section className="py-32 mt-2 bg-background relative overflow-hidden">
-      {/* Subtle background elements */}
+      {}
       <div className="absolute top-10 right-10 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
       <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-primary/30 rounded-full"></div>
 
       <div className="max-w-6xl mx-auto px-6">
-        {/* Header with creative layout */}
+        {}
         <div className="flex flex-col lg:flex-row items-start gap-12 mb-24">
           <div className="lg:w-2/3">
             <div className="flex items-center gap-3 mb-6">
@@ -75,7 +75,7 @@ const CourseOverview = () => {
             </p>
           </div>
 
-          {/* CTA Card */}
+          {}
           <div className="w-full md:w-full lg:w-1/3">
             <div className="bg-card border border-border rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-500">
               <div className="space-y-4">
@@ -99,54 +99,54 @@ const CourseOverview = () => {
           </div>
         </div>
 
-        {/* Features Grid with Smart Design */}
+        {}
         <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="group cursor-pointer"
-              onMouseEnter={() => setActiveFeature(index)}
-              onClick={() => setActiveFeature(index)}
-            >
+          {features.map((feature, index) =>
+          <div
+            key={index}
+            className="group cursor-pointer"
+            onMouseEnter={() => setActiveFeature(index)}
+            onClick={() => setActiveFeature(index)}>
+            
               <div
-                className={`relative bg-card border rounded-2xl p-8 transition-all duration-500 ${
-                  activeFeature === index
-                    ? "border-primary shadow-lg scale-105"
-                    : "border-border hover:border-primary/50"
-                }`}
-              >
-                {/* Number with gradient */}
+              className={`relative bg-card border rounded-2xl p-8 transition-all duration-500 ${
+              activeFeature === index ?
+              "border-primary shadow-lg scale-105" :
+              "border-border hover:border-primary/50"}`
+              }>
+              
+                {}
                 <div
-                  className={`text-6xl font-primary font-bold bg-gradient-to-r ${feature.gradient} bg-clip-text text-transparent mb-4`}
-                >
+                className={`text-6xl font-primary font-bold bg-gradient-to-r ${feature.gradient} bg-clip-text text-transparent mb-4`}>
+                
                   {feature.number}
                 </div>
 
-                {/* Unit */}
+                {}
                 <div className="font-primary text-lg font-semibold text-foreground mb-2">
                   {feature.unit}
                 </div>
 
-                {/* Title */}
+                {}
                 <h3 className="font-primary text-xl font-bold mb-3">
                   {feature.title}
                 </h3>
 
-                {/* Description */}
+                {}
                 <p className="text-muted-foreground font-secondary leading-relaxed">
                   {feature.description}
                 </p>
 
-                {/* Active indicator */}
-                {activeFeature === index && (
-                  <div className="absolute bottom-6 left-8 w-4 h-0.5 bg-primary rounded-full"></div>
-                )}
+                {}
+                {activeFeature === index &&
+              <div className="absolute bottom-6 left-8 w-4 h-0.5 bg-primary rounded-full"></div>
+              }
               </div>
             </div>
-          ))}
+          )}
         </div>
 
-        {/* Program Structure - Minimal Design */}
+        {}
         <div className="bg-card border border-border rounded-2xl p-8">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-primary font-bold mb-3">
@@ -156,7 +156,7 @@ const CourseOverview = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Schedule */}
+            {}
             <div className="space-y-6">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -172,22 +172,22 @@ const CourseOverview = () => {
 
               <div className="space-y-3">
                 {[
-                  { day: "Sun-Thu", time: "2-4 PM", activity: "Live Classes" },
-                  {
-                    day: "Daily",
-                    time: "4-5 PM",
-                    activity: "Reflection Videos",
-                  },
-                  {
-                    day: "Weekly",
-                    time: "Coach Sessions",
-                    activity: "Personal Feedback",
-                  },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between p-3 rounded-lg border border-border hover:border-primary/30 transition-colors"
-                  >
+                { day: "Sun-Thu", time: "2-4 PM", activity: "Live Classes" },
+                {
+                  day: "Daily",
+                  time: "4-5 PM",
+                  activity: "Reflection Videos"
+                },
+                {
+                  day: "Weekly",
+                  time: "Coach Sessions",
+                  activity: "Personal Feedback"
+                }].
+                map((item, index) =>
+                <div
+                  key={index}
+                  className="flex items-center justify-between p-3 rounded-lg border border-border hover:border-primary/30 transition-colors">
+                  
                     <div>
                       <div className="font-primary font-semibold">
                         {item.day}
@@ -200,11 +200,11 @@ const CourseOverview = () => {
                       {item.time}
                     </div>
                   </div>
-                ))}
+                )}
               </div>
             </div>
 
-            {/* Deliverables */}
+            {}
             <div className="space-y-6">
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
@@ -222,27 +222,27 @@ const CourseOverview = () => {
 
               <div className="space-y-3">
                 {[
-                  {
-                    item: "Daily 1-min reflection videos",
-                    icon: Video,
-                  },
-                  {
-                    item: "Weekly LinkedIn/Twitter updates",
-                    icon: TrendingUp,
-                  },
-                  {
-                    item: "Month 3 internship documentation",
-                    icon: FileText,
-                  },
-                  {
-                    item: "Final professional portfolio",
-                    icon: Award,
-                  },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 transition-colors"
-                  >
+                {
+                  item: "Daily 1-min reflection videos",
+                  icon: Video
+                },
+                {
+                  item: "Weekly LinkedIn/Twitter updates",
+                  icon: TrendingUp
+                },
+                {
+                  item: "Month 3 internship documentation",
+                  icon: FileText
+                },
+                {
+                  item: "Final professional portfolio",
+                  icon: Award
+                }].
+                map((item, index) =>
+                <div
+                  key={index}
+                  className="flex items-center gap-3 p-3 rounded-lg border border-border hover:border-primary/30 transition-colors">
+                  
                     <div className="w-8 h-8 bg-primary/10 rounded-md flex items-center justify-center flex-shrink-0">
                       <item.icon className="w-4 h-4 text-primary" />
                     </div>
@@ -250,14 +250,14 @@ const CourseOverview = () => {
                       {item.item}
                     </span>
                   </div>
-                ))}
+                )}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default CourseOverview;

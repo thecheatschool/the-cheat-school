@@ -4,7 +4,7 @@ import Navbar from './components/global/Navbar';
 import Footer from './components/global/Footer';
 import AIChatbot from './components/global/AiChatBot';
 
-const Layout = () => { 
+const Layout = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
   return (
@@ -14,9 +14,9 @@ const Layout = () => {
         <Outlet /> 
       </main>
       <Footer />
-      {/* <AIChatbot isOpen={isChatOpen} setIsOpen={setIsChatOpen} /> */}
-    </div>
-  );
+      {}
+    </div>);
+
 };
 
 export default Layout;

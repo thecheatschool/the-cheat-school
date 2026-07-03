@@ -5,78 +5,78 @@ import {
   Building,
   Calculator,
   Calendar,
-  User,
-} from "lucide-react";
+  User } from
+"lucide-react";
 
 const SkillsMastered = () => {
   const skills = [
-    {
-      category: "Design & Drafting",
-      icon: DraftingCompass,
-      skills: [
-        "AutoCAD Basics & Advanced",
-        "Revit Modeling",
-        "2BHK Floor Plans",
-        "Sections & Elevations",
-        "Layers & Annotations",
-      ],
-    },
-    {
-      category: "Project Management",
-      icon: Calendar,
-      skills: [
-        "MS Project/Primavera",
-        "Gantt Charts",
-        "Critical Path Method",
-        "Resource Allocation",
-        "Manpower Planning",
-      ],
-    },
-    {
-      category: "Quantity Surveying",
-      icon: Calculator,
-      skills: [
-        "BOQ Estimation",
-        "Material Takeoff",
-        "Costing",
-        "2BHK Project Estimation",
-        "Professional Reporting",
-      ],
-    },
-    {
-      category: "AI in Civil Engineering",
-      icon: Cpu,
-      skills: [
-        "Generative Design",
-        "AI Automation",
-        "Predictive Scheduling",
-        "Computer Vision Safety",
-        "Clash Detection",
-      ],
-    },
-    {
-      category: "Structural Basics",
-      icon: Building,
-      skills: [
-        "RCC Design",
-        "Load Distribution",
-        "Structural Elements",
-        "Construction Materials",
-        "Building Codes",
-      ],
-    },
-    {
-      category: "Professional Development",
-      icon: User,
-      skills: [
-        "Communication Skills",
-        "Presentation Skills",
-        "LinkedIn Profile",
-        "CV Refinement",
-        "Interview Preparation",
-      ],
-    },
-  ];
+  {
+    category: "Design & Drafting",
+    icon: DraftingCompass,
+    skills: [
+    "AutoCAD Basics & Advanced",
+    "Revit Modeling",
+    "2BHK Floor Plans",
+    "Sections & Elevations",
+    "Layers & Annotations"]
+
+  },
+  {
+    category: "Project Management",
+    icon: Calendar,
+    skills: [
+    "MS Project/Primavera",
+    "Gantt Charts",
+    "Critical Path Method",
+    "Resource Allocation",
+    "Manpower Planning"]
+
+  },
+  {
+    category: "Quantity Surveying",
+    icon: Calculator,
+    skills: [
+    "BOQ Estimation",
+    "Material Takeoff",
+    "Costing",
+    "2BHK Project Estimation",
+    "Professional Reporting"]
+
+  },
+  {
+    category: "AI in Civil Engineering",
+    icon: Cpu,
+    skills: [
+    "Generative Design",
+    "AI Automation",
+    "Predictive Scheduling",
+    "Computer Vision Safety",
+    "Clash Detection"]
+
+  },
+  {
+    category: "Structural Basics",
+    icon: Building,
+    skills: [
+    "RCC Design",
+    "Load Distribution",
+    "Structural Elements",
+    "Construction Materials",
+    "Building Codes"]
+
+  },
+  {
+    category: "Professional Development",
+    icon: User,
+    skills: [
+    "Communication Skills",
+    "Presentation Skills",
+    "LinkedIn Profile",
+    "CV Refinement",
+    "Interview Preparation"]
+
+  }];
+
 
   return (
     <section className="py-20 bg-background">
@@ -92,11 +92,11 @@ const SkillsMastered = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skills.map((category, index) => (
-            <div
-              key={index}
-              className="bg-card border border-border hover:border-primary duration-300 rounded-xl p-6"
-            >
+          {skills.map((category, index) =>
+          <div
+            key={index}
+            className="bg-card border border-border hover:border-primary duration-300 rounded-xl p-6">
+            
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-[#e83f25] rounded-lg">
                   <category.icon className="w-5 h-5 text-white" />
@@ -106,15 +106,15 @@ const SkillsMastered = () => {
                 </h3>
               </div>
               <div className="space-y-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="flex items-center gap-2">
+                {category.skills.map((skill, skillIndex) =>
+              <div key={skillIndex} className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#e83f25] rounded-full"></div>
                     <span className="text-sm">{skill}</span>
                   </div>
-                ))}
+              )}
               </div>
             </div>
-          ))}
+          )}
         </div>
 
         <div className="text-left mt-12">
@@ -128,8 +128,8 @@ const SkillsMastered = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default SkillsMastered;

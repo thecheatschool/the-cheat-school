@@ -21,8 +21,8 @@ const CTA = () => {
                   <a
                     href="https://chat.whatsapp.com/G3T2EfQN9pAJ3yGwsRBXcD "
                     className="inline-flex items-center gap-2 bg-white text-[#e83f25] px-6 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
-                    style={{ fontFamily: 'Inter, sans-serif' }}
-                  >
+                    style={{ fontFamily: 'Inter, sans-serif' }}>
+                    
                     Join our Community
                     <ArrowRight className="w-5 h-5" />
                   </a>
@@ -33,15 +33,15 @@ const CTA = () => {
                 <img
                   className="absolute inset-0 object-cover object-center w-full h-full mt-16 -mr-16 rounded-tl-xl"
                   src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
-                  alt="Civil engineering education platform"
-                />
+                  alt="Civil engineering education platform" />
+                
               </aside>
             </div>
           </div>
         </div>
       </section>
-    </>
-  );
+    </>);
+
 };
 
 export default CTA;

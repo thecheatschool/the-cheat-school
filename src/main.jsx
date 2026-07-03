@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./App.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools"; // ADD THIS
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-// Initialize theme before rendering
+
 const initializeTheme = () => {
   const savedTheme = localStorage.getItem("theme-storage");
   if (savedTheme) {
@@ -24,11 +24,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
       <App />
     </React.StrictMode>
-    {/* Only shows in development */}
-    <ReactQueryDevtools 
-      initialIsOpen={true}  // Force open
-      position="bottom"     // Change position
-      errorTypes={[]}       // Disable error catching
-    />
+    {}
+    <ReactQueryDevtools
+      initialIsOpen={true}
+      position="bottom"
+      errorTypes={[]} />
+    
   </QueryClientProvider>
 );

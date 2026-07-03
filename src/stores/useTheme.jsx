@@ -13,7 +13,7 @@ export const useTheme = create(
           document.documentElement.classList.remove('dark');
         }
         return { theme: newTheme };
-      }),
+      })
     }),
     {
       name: 'theme-storage',
@@ -21,7 +21,7 @@ export const useTheme = create(
         if (state?.theme === 'dark') {
           document.documentElement.classList.add('dark');
         }
-      },
+      }
     }
   )
 );

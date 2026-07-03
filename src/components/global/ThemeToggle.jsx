@@ -9,15 +9,15 @@ const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className="p-2 rounded-lg  transition-colors mr-2 duration-300 hover:bg-gray-300 dark:hover:bg-gray-600"
-      aria-label="Toggle theme"
-    >
-      {theme === "light" ? (
-        <Moon className="w-5 h-5 text-gray-700" />
-      ) : (
-        <Sun className="w-5 h-5 text-yellow-400" />
-      )}
-    </button>
-  );
+      aria-label="Toggle theme">
+      
+      {theme === "light" ?
+      <Moon className="w-5 h-5 text-gray-700" /> :
+
+      <Sun className="w-5 h-5 text-yellow-400" />
+      }
+    </button>);
+
 };
 
 export default ThemeToggle;

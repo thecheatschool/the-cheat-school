@@ -12,51 +12,51 @@ import CivilEngineering from "./pages/CivilEngineering";
 import AiCourses from "./pages/AiEngineering";
 
 const router = createBrowserRouter([
+{
+  path: "/",
+  element: <Layout />,
+  children: [
   {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <LandingPage />,
-      },
-      {
-        path: "events",
-        element: <Events />,
-      },
-      {
-        path: "gallery",
-        element: <Gallery />,
-      },
-      {
-        path: "blogs",
-        element: <BlogsPage />,
-      },
-      {
-        path: "blogs/:slug",
-        element: <BlogDetailPage />,
-      },
-      {
-        path: "contact-us",
-        element: <ContactUs />,
-      },{
-        
-        path: "civil-engineering",
-        element: <CivilEngineering />,
-      },
-      {
-        
-        path: "ai-engineering",
-        element: <AiCourses />,
-      },
-      
-    ],
+    index: true,
+    element: <LandingPage />
   },
   {
-    path: "*",
-    element: <NotFound />,
+    path: "events",
+    element: <Events />
   },
-]);
+  {
+    path: "gallery",
+    element: <Gallery />
+  },
+  {
+    path: "blogs",
+    element: <BlogsPage />
+  },
+  {
+    path: "blogs/:slug",
+    element: <BlogDetailPage />
+  },
+  {
+    path: "contact-us",
+    element: <ContactUs />
+  }, {
+
+    path: "civil-engineering",
+    element: <CivilEngineering />
+  },
+  {
+
+    path: "ai-engineering",
+    element: <AiCourses />
+  }]
+
+
+},
+{
+  path: "*",
+  element: <NotFound />
+}]
+);
 
 const App = () => {
   return <RouterProvider router={router} />;

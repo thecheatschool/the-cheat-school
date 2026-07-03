@@ -3,13 +3,13 @@ import { CheckCircle } from "lucide-react";
 
 const CertificationMetrics = () => {
   const metrics = [
-    "Completion of all technical assignments & mini-projects",
-    "Weekly social media updates & engagement",
-    "Daily & weekly reflection videos",
-    "Internship documentation & on-field videos",
-    "Final 90-day video documenting entire journey",
-    "Improvement in communication, presentation, and professionalism"
-  ];
+  "Completion of all technical assignments & mini-projects",
+  "Weekly social media updates & engagement",
+  "Daily & weekly reflection videos",
+  "Internship documentation & on-field videos",
+  "Final 90-day video documenting entire journey",
+  "Improvement in communication, presentation, and professionalism"];
+
 
   return (
     <section className="py-20 bg-background">
@@ -39,12 +39,12 @@ const CertificationMetrics = () => {
             </h3>
             
             <div className="grid gap-4">
-              {metrics.map((metric, index) => (
-                <div key={index} className="flex items-start gap-4 p-4 bg-muted rounded-lg">
+              {metrics.map((metric, index) =>
+              <div key={index} className="flex items-start gap-4 p-4 bg-muted rounded-lg">
                   <CheckCircle className="w-5 h-5 text-[#e83f25] mt-1 flex-shrink-0" />
                   <span className="text-sm">{metric}</span>
                 </div>
-              ))}
+              )}
             </div>
 
             <div className="mt-8 text-center">
@@ -55,8 +55,8 @@ const CertificationMetrics = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default CertificationMetrics;

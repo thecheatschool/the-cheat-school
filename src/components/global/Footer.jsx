@@ -8,8 +8,8 @@ import {
   Linkedin,
   RectangleGogglesIcon,
   Quote,
-  MessageCircle,
-} from "lucide-react";
+  MessageCircle } from
+"lucide-react";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
@@ -30,20 +30,20 @@ const Footer = () => {
           <div className="flex gap-4 mt-4">
             <a
               href="https://www.instagram.com/thecheatschool/"
-              className="text-white hover:text-primary transition-colors"
-            >
+              className="text-white hover:text-primary transition-colors">
+              
               <Instagram size={24} />
             </a>
             <a
               href="https://www.linkedin.com/company/the-cheat-school/posts/?feedView=all"
-              className="text-white hover:text-primary transition-colors"
-            >
+              className="text-white hover:text-primary transition-colors">
+              
               <Linkedin size={24} />
             </a>
             <a
               href="#"
-              className="text-white hover:text-primary transition-colors"
-            >
+              className="text-white hover:text-primary transition-colors">
+              
               <MessageCircle size={24} />
             </a>
           </div>
@@ -55,20 +55,20 @@ const Footer = () => {
           </h2>
           <ul className="space-y-2 font-primary">
             {[
-              { name: "Home", path: "/" },
-              { name: "Blogs", path: "/blogs" },
-              { name: "Contact Us", path: "/contact-us" },
-              { name: "Events", path: "/events"}
-            ].map((link) => (
-              <li key={link.name}>
+            { name: "Home", path: "/" },
+            { name: "Blogs", path: "/blogs" },
+            { name: "Contact Us", path: "/contact-us" },
+            { name: "Events", path: "/events" }].
+            map((link) =>
+            <li key={link.name}>
                 <NavLink
-                  to={link.path}
-                  className="hover:text-primary transition duration-300"
-                >
+                to={link.path}
+                className="hover:text-primary transition duration-300">
+                
                   {link.name}
                 </NavLink>
               </li>
-            ))}
+            )}
           </ul>
         </div>
 
@@ -96,8 +96,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 };
 
 export default Footer;
